@@ -1,0 +1,27 @@
+{
+  "event": "Event name here",
+  "date": "2026-01-01",
+  "venue": "Venue, City",
+  "client": "Client name",
+  "contact": "Louis — gassProductions (07xxx xxx xxx)",
+  "schedule": [
+    {
+      "start": "09:00",
+      "duration": 30,
+      "title": "Doors & registration",
+      "type": "break",
+      "note": "Optional note for the crew (mics, lighting, VT cues...)"
+    },
+    {
+      "start": "09:30",
+      "duration": 20,
+      "speaker": "Speaker Name",
+      "role": "Job Title",
+      "org": "Company",
+      "title": "Talk title",
+      "photo": "photos/speaker-name.jpg",
+      "desc": "Optional one-line description of the segment.",
+      "note": "Optional crew note for this slot."
+    }
+  ]
+}
