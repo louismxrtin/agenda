@@ -10,18 +10,31 @@
       "duration": 30,
       "title": "Doors & registration",
       "type": "break",
-      "note": "Optional note for the crew (mics, lighting, VT cues...)"
+      "note": "Optional crew note (mics, lighting, VT cues...)"
     },
     {
       "start": "09:30",
       "duration": 20,
-      "speaker": "Speaker Name",
+      "section": "Session One",
+      "speaker": "Single Speaker Name",
       "role": "Job Title",
       "org": "Company",
       "title": "Talk title",
       "photo": "photos/speaker-name.jpg",
-      "desc": "Optional one-line description of the segment.",
+      "desc": "Optional one-line description.",
       "note": "Optional crew note for this slot."
+    },
+    {
+      "start": "09:50",
+      "duration": 40,
+      "section": "Session One",
+      "title": "Panel: example with multiple speakers",
+      "people": [
+        { "name": "Moderator Name", "role": "Job Title", "org": "Company", "moderator": true, "photo": "photos/moderator.jpg" },
+        { "name": "Panellist One", "role": "Job Title", "org": "Company", "photo": "photos/panellist-one.jpg" },
+        { "name": "Panellist Two", "role": "Job Title", "org": "Company", "photo": "photos/panellist-two.jpg" }
+      ],
+      "desc": "Optional one-line description of the panel."
     }
   ]
 }
