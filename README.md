@@ -89,8 +89,29 @@ Each item in `schedule` is one slot:
 | `desc`     | —        | Optional one-line description |
 | `note`     | —        | **Crew note** — highlighted in gold (mic channels, VT cues, lighting states…) |
 | `type`     | —        | Set to `"break"` for non-speaker rows (registration, coffee, lunch). |
+| `section`  | —        | Optional session label (e.g. `"Session One"`) — shows as a gold divider above the slot. |
+| `people`   | —        | For panels / multiple speakers — see below. Use instead of `speaker`/`role`/`org`. |
 
 Slots are automatically sorted by start time, so you can add them in any order.
+
+### Multiple speakers (panels)
+For a slot with more than one person, use a `people` list instead of the single `speaker` fields. Each person takes `name`, `role`, `org`, `photo`, and optionally `"moderator": true` (adds a gold **Mod** tag):
+
+```json
+{
+  "start": "10:30",
+  "duration": 45,
+  "section": "Session One",
+  "title": "Panel: title here",
+  "people": [
+    { "name": "Chair Name", "role": "Job Title", "org": "Company", "moderator": true, "photo": "photos/chair.jpg" },
+    { "name": "Panellist", "role": "Job Title", "org": "Company", "photo": "photos/panellist.jpg" }
+  ],
+  "desc": "Optional one-line summary."
+}
+```
+
+One person shows as a large card; two or more show as a tidy grid of speaker cards.
 
 ### Photos
 - Put image files in the event's `photos` folder and reference them as `"photos/filename.jpg"`.
