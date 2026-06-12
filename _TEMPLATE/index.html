@@ -157,7 +157,9 @@ function render(){
   }).sort((a,b)=>(a._start?.getTime()||0)-(b._start?.getTime()||0));
 
   let liveIdx=segs.findIndex(s=>s._start&&s._end&&now>=s._start&&now<s._end);
-  let nextIdx=liveIdx===-1?segs.findIndex(s=>s._start&&now<s._start):-1;
+  let nextIdx=-1;
+  if(liveIdx!==-1){ if(liveIdx+1<segs.length) nextIdx=liveIdx+1; }
+  else { nextIdx=segs.findIndex(s=>s._start&&now<s._start); }
 
   let lastSection=null;
   const tl=document.getElementById('timeline');
@@ -167,7 +169,7 @@ function render(){
 
     const isLive=i===liveIdx, isNext=i===nextIdx, isDone=s._end&&now>=s._end;
     const cls=['seg']; if(s.type==='break')cls.push('break'); if(isLive)cls.push('live'); else if(isDone)cls.push('done');
-    let badge=''; if(isLive)badge='<div class="badge live">● Live now</div>'; else if(isNext)badge='<div class="badge next">Up next</div>'; else if(isDone)badge='<div class="badge done">Done</div>';
+    let badge=''; if(isLive)badge='<div class="badge live">● Live now</div>'; else if(isNext)badge='<div class="badge next">Up next</div>';
 
     // normalise people: explicit people[] OR single speaker fields
     let people=Array.isArray(s.people)?s.people:null;
