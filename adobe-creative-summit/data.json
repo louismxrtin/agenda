@@ -1,0 +1,73 @@
+{
+  "event": "Adobe Creative Summit 2026",
+  "date": "2026-09-24",
+  "venue": "The Brewery, London EC1",
+  "client": "Adobe",
+  "contact": "Louis — gassProductions (07xxx xxx xxx)",
+  "schedule": [
+    {
+      "start": "08:30",
+      "duration": 30,
+      "title": "Doors & registration",
+      "type": "break",
+      "note": "Walk-in music low. House lights at 80%. Stage comms check by 08:15."
+    },
+    {
+      "start": "09:00",
+      "duration": 15,
+      "speaker": "Sarah Whitfield",
+      "role": "VP, Creative Cloud",
+      "org": "Adobe",
+      "title": "Welcome & opening keynote",
+      "photo": "photos/sarah-whitfield.jpg",
+      "note": "VT 'Sizzle_Open_v3' rolls before walk-on. Lav mic, channel 1."
+    },
+    {
+      "start": "09:15",
+      "duration": 25,
+      "speaker": "Daniel Osei",
+      "role": "Director of Product Design",
+      "org": "Adobe",
+      "title": "The future of generative workflows",
+      "photo": "photos/daniel-osei.jpg",
+      "note": "Live demo — confidence monitor + presenter laptop feed on PIP."
+    },
+    {
+      "start": "09:40",
+      "duration": 20,
+      "speaker": "Priya Nair",
+      "role": "Head of Motion",
+      "org": "Studio Nair",
+      "title": "Designing for screens of every size",
+      "photo": "photos/priya-nair.jpg"
+    },
+    {
+      "start": "10:00",
+      "duration": 20,
+      "title": "Coffee & networking",
+      "type": "break",
+      "note": "Comfort lighting up. Music up. 18-min reset on stage for panel chairs."
+    },
+    {
+      "start": "10:20",
+      "duration": 40,
+      "speaker": "Marcus Lee",
+      "role": "Creative Director",
+      "org": "BMW",
+      "title": "Panel: Brand storytelling at scale",
+      "photo": "photos/marcus-lee.jpg",
+      "desc": "Panel with 3 guests — 4 lav mics, channels 2–5. Roaming Q&A mic from 10:50.",
+      "note": "Camera 2 stays on whoever is speaking. Lower-thirds for each panellist."
+    },
+    {
+      "start": "11:00",
+      "duration": 20,
+      "speaker": "Elena Rossi",
+      "role": "Founder & Filmmaker",
+      "org": "Rossi Films",
+      "title": "Closing keynote: Craft in the age of automation",
+      "photo": "photos/elena-rossi.jpg",
+      "note": "End on 'Close_Loop_v2' VT. Hold applause, then house lights to full."
+    }
+  ]
+}
