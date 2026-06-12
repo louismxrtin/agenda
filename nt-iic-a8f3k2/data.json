@@ -3,14 +3,13 @@
   "date": "2025-09-30",
   "venue": "The Pelligon, 43 Bank Street, Canary Wharf, London",
   "client": "Northern Trust",
-  "contact": "Louis — gassProductions (07xxx xxx xxx)",
+  "contact": "Louis — gassProductions (07925605232)",
   "schedule": [
     {
       "start": "08:45",
       "duration": 45,
       "title": "Registration and light breakfast",
-      "type": "break",
-      "note": "Walk-in music low. House lights up. Comms check complete by 08:30."
+      "type": "break"
     },
     {
       "start": "09:30",
