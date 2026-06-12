@@ -146,7 +146,8 @@ function render(){
   // find the live (or next) segment
   let liveIdx = segs.findIndex(s=> s._start && s._end && now>=s._start && now<s._end);
   let nextIdx = -1;
-  if(liveIdx===-1){ nextIdx = segs.findIndex(s=> s._start && now < s._start); }
+  if(liveIdx!==-1){ if(liveIdx+1<segs.length) nextIdx = liveIdx+1; }
+  else { nextIdx = segs.findIndex(s=> s._start && now < s._start); }
 
   const tl = document.getElementById('timeline');
   tl.innerHTML = segs.map((s,i)=>{
@@ -161,7 +162,6 @@ function render(){
     let badge = '';
     if(isLive) badge = '<div class="badge live">● Live now</div>';
     else if(isNext) badge = '<div class="badge next">Up next</div>';
-    else if(isDone) badge = '<div class="badge done">Done</div>';
 
     let avatar = '';
     if(s.type!=='break'){
