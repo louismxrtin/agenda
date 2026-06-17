@@ -172,25 +172,20 @@ function render(){
     let people=Array.isArray(s.people)?s.people:null;
     if(!people && s.speaker) people=[{name:s.speaker,role:s.role,org:s.org,photo:s.photo}];
 
+    const personCard=(p)=>{
+      const role=[esc(p.role||''),p.org?`<span class="speaker-org">${esc(p.org)}</span>`:''].filter(Boolean).join(', ');
+      const av = p.photo ? avatarHTML(p.photo,p.name,false) : '';
+      return `<div class="person${p.photo?'':' nopic'}">${av}<div><div class="pn">${esc(p.name)}${p.moderator?'<span class="tag-mod">Mod</span>':''}</div>${role?`<div class="pr">${role}</div>`:''}</div></div>`;
+    };
+
     let body='';
     if(s.type==='break'){
       body=`<div class="seg-title">${esc(s.title||'Break')}</div>`;
-    } else if(people && people.length>1){
-      body=`<div class="seg-title">${esc(s.title||'Session')}</div>`;
-      body+=`<div class="people">`+people.map(p=>{
-        const role=[esc(p.role||''),p.org?`<span class="speaker-org">${esc(p.org)}</span>`:''].filter(Boolean).join(', ');
-        return `<div class="person">${avatarHTML(p.photo,p.name,false)}<div><div class="pn">${esc(p.name)}${p.moderator?'<span class="tag-mod">Mod</span>':''}</div><div class="pr">${role}</div></div></div>`;
-      }).join('')+`</div>`;
-    } else if(people && people.length===1){
-      const p=people[0];
-      const role=[esc(p.role||''),p.org?`<span class="speaker-org">${esc(p.org)}</span>`:''].filter(Boolean).join(' · ');
-      body=`<div class="solo">${avatarHTML(p.photo,p.name,true)}<div class="info">
-              <div class="speaker-name">${esc(p.name)}</div>
-              <div class="speaker-title">${role}</div>
-              ${s.title?`<div class="seg-desc"><b>${esc(s.title)}</b></div>`:''}
-            </div></div>`;
     } else {
-      body=`<div class="seg-title">${esc(s.title||'Segment')}</div>`;
+      body=`<div class="seg-title">${esc(s.title||'Session')}</div>`;
+      if(people && people.length){
+        body+=`<div class="people">`+people.map(personCard).join('')+`</div>`;
+      }
     }
     if(s.desc) body+=`<div class="seg-desc">${esc(s.desc)}</div>`;
     if(s.note) body+=`<div class="crew-note"><b>Crew</b> &nbsp;${esc(s.note)}</div>`;
