@@ -1,0 +1,100 @@
+{
+  "event": "Qubits Europe: Quantum Realized in London",
+  "date": "2026-06-18",
+  "venue": "London",
+  "client": "D-Wave",
+  "contact": "Louis — gassProductions (07925605232)",
+  "schedule": [
+    { "start": "08:45", "duration": 20, "section": "Morning", "title": "Open doors", "type": "break" },
+    { "start": "09:29", "duration": 1, "section": "Morning", "title": "Opening video" },
+    {
+      "start": "09:30", "duration": 4, "section": "Morning", "title": "Host opening remarks",
+      "people": [ { "name": "Irwan Owen", "role": "VP, Advanced Computing Business", "org": "D-Wave Quantum" } ]
+    },
+    {
+      "start": "09:35", "duration": 55, "section": "Morning", "title": "Opening keynote",
+      "people": [
+        { "name": "Alan Baratz", "role": "CEO", "org": "D-Wave" },
+        { "name": "Derek Hosty", "role": "Sr. Director", "org": "Optum" },
+        { "name": "Jeremy Kahn" }
+      ]
+    },
+    {
+      "start": "10:30", "duration": 5, "section": "Morning", "title": "Q&A: Alan Baratz",
+      "people": [ { "name": "Alan Baratz", "role": "CEO", "org": "D-Wave" } ]
+    },
+    {
+      "start": "10:35", "duration": 45, "section": "Morning", "title": "D-Wave Quantum Computing Technology",
+      "people": [ { "name": "Dr. Trevor Lanting", "role": "Chief Development Officer, R&D", "org": "D-Wave" } ]
+    },
+    {
+      "start": "11:20", "duration": 5, "section": "Morning", "title": "Q&A: Dr. Trevor Lanting",
+      "people": [ { "name": "Dr. Trevor Lanting", "role": "Chief Development Officer, R&D", "org": "D-Wave" } ]
+    },
+    { "start": "11:25", "duration": 20, "section": "Morning", "title": "Break", "type": "break" },
+    {
+      "start": "11:47", "duration": 25, "section": "Morning", "title": "Panel: Quantum Optimization in the Enterprise",
+      "people": [
+        { "name": "Rich Baker", "role": "Vice President, EMEA Sales", "org": "D-Wave Quantum", "moderator": true },
+        { "name": "Dr. Ahmet Esat Hızır", "role": "Director of Operations Research", "org": "Turkish Airlines Technology" },
+        { "name": "Murat Canturk", "role": "CEO", "org": "Q&Co" },
+        { "name": "Lionel Rigaud", "role": "Founder & CEO", "org": "QbitSoft" },
+        { "name": "Dr. Nathan Korda", "org": "MS&AD Holdings" }
+      ]
+    },
+    {
+      "start": "12:15", "duration": 23, "section": "Morning", "title": "Proof of Concept: Optimizing Production Assignment & Scheduling at BASF",
+      "people": [ { "name": "Ionel Rusu", "org": "BASF" } ]
+    },
+    { "start": "12:40", "duration": 60, "section": "Morning", "title": "Lunch", "type": "break" },
+    {
+      "start": "13:42", "duration": 25, "section": "Afternoon", "title": "Applied Quantum Computing: 3D Bin Packing for Würth",
+      "people": [ { "name": "Dr. Eneko Osaba", "role": "Principal Researcher", "org": "Tecnalia" } ]
+    },
+    {
+      "start": "14:07", "duration": 23, "section": "Afternoon", "title": "Quantum Fit — Identifying the Makings of a Quantum-Suitable Problem",
+      "people": [ { "name": "Dr. Mayowa Ayodele", "org": "D-Wave" } ]
+    },
+    {
+      "start": "14:32", "duration": 20, "section": "Afternoon", "title": "Introduction to D-Wave's Gate Model Technology",
+      "people": [ { "name": "Dr. Andrei Petrenko", "role": "VP of Gate Product Management", "org": "D-Wave Quantum" } ]
+    },
+    {
+      "start": "14:52", "duration": 20, "section": "Afternoon", "title": "Quantum Research: Quantum-Ready Crystal Structure Prediction",
+      "people": [ { "name": "Dr. Esma Kurban", "role": "Research Associate", "org": "University of Liverpool" } ]
+    },
+    { "start": "15:15", "duration": 15, "section": "Afternoon", "title": "Break", "type": "break" },
+    {
+      "start": "15:37", "duration": 20, "section": "Afternoon", "title": "Fireside Chat: Q-Alliance — On-Premise Quantum Infrastructure",
+      "people": [
+        { "name": "Richard Kinder", "role": "Senior Director, Advanced Computing Business", "org": "D-Wave Quantum", "moderator": true },
+        { "name": "Dr. Ugo Moschella", "org": "CERN / Università dell'Insubria, Como" }
+      ]
+    },
+    {
+      "start": "15:59", "duration": 26, "section": "Afternoon", "title": "Panel: Quantum Research",
+      "people": [
+        { "name": "Dr. Trevor Lanting", "org": "D-Wave" },
+        { "name": "Dr. Markus Müller", "org": "Paul Scherrer Institute" },
+        { "name": "Dr. Guillermo García-Pérez", "org": "Algorithmiq" },
+        { "name": "Jaka Vodeb", "org": "Jožef Stefan Institute and Nanocenter" }
+      ]
+    },
+    {
+      "start": "16:25", "duration": 25, "section": "Afternoon", "title": "Quantum Investment in Europe",
+      "people": [
+        { "name": "Ms. Allison Schwartz", "role": "Senior VP, Global Government Relations & Public Affairs", "org": "D-Wave Quantum", "moderator": true },
+        { "name": "Tom Scott", "org": "Office of Quantum, DSIT" },
+        { "name": "Dr. Irene López de Vallejo", "role": "Head of Business Development", "org": "Tecnalia" },
+        { "name": "Sue Daley OBE", "role": "Director, Technology & Innovation", "org": "techUK" },
+        { "name": "Aleksandar Davidov", "org": "Tet Digital AS" },
+        { "name": "Sec. J. Alex Kelly", "org": "State of Florida" }
+      ]
+    },
+    {
+      "start": "16:50", "duration": 10, "section": "Afternoon", "title": "Host closing remarks",
+      "people": [ { "name": "Irwan Owen", "role": "VP, Advanced Computing Business", "org": "D-Wave Quantum" } ]
+    },
+    { "start": "17:00", "duration": 60, "section": "Afternoon", "title": "Reception", "type": "break" }
+  ]
+}
