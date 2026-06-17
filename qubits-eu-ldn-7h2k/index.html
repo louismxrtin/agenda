@@ -20,7 +20,7 @@
   .head-inner{max-width:900px;margin:0 auto;padding:18px 20px 16px}
   .brandrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
   .wordmark{font-weight:700;font-size:18px;letter-spacing:.5px}
-  .wordmark span{color:var(--gold)}
+  .wordmark{display:inline-flex;align-items:stretch;line-height:1;letter-spacing:-.2px}.wordmark .lg-a{background:#F2F3F5;color:#000;padding:4px 6px}.wordmark .lg-b{color:#fff;padding:4px 5px 4px 6px}
   .clock{font-variant-numeric:tabular-nums;font-weight:600;font-size:15px;color:var(--gold);text-align:right;line-height:1.2}
   .clock small{display:block;color:var(--muted);font-weight:400;font-size:11px;text-transform:uppercase;letter-spacing:1px}
   h1{font-size:clamp(22px,4.6vw,38px);font-weight:700;line-height:1.15;margin-top:14px}
@@ -88,7 +88,7 @@
   <header>
     <div class="head-inner">
       <div class="brandrow">
-        <div class="wordmark">gass<span>Productions</span></div>
+        <div class="wordmark"><span class="lg-a">gass</span><span class="lg-b">Productions</span></div>
         <div class="clock"><span id="clock">--:--</span><small id="clockdate">Local time</small></div>
       </div>
       <h1 id="event-title">Loading…</h1>
