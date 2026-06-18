@@ -44,6 +44,8 @@
 
   .updated{max-width:900px;margin:10px auto 0;padding:0 20px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--next);display:inline-block;animation:pulse 2s infinite}
+  .followtog{margin-left:auto;display:inline-flex;align-items:center;gap:6px;cursor:pointer;text-transform:none;letter-spacing:0;color:var(--muted)}
+  .followtog input{accent-color:var(--gold);width:15px;height:15px;cursor:pointer}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
   main{max-width:900px;margin:18px auto 0;padding:0 20px}
@@ -121,7 +123,7 @@
     </div>
   </header>
 
-  <div class="updated"><span class="dot"></span><span id="updated">Live — auto-refreshing</span></div>
+  <div class="updated"><span class="dot"></span><span id="updated">Live — auto-refreshing</span><label class="followtog"><input type="checkbox" id="followLive"> Auto-scroll to live</label></div>
 
   <main id="timeline"></main>
 
@@ -138,6 +140,8 @@ const SYNC_TOPIC = 'gass/agenda/qubits-eu-ldn-7h2k/offset';
 let EVENT = null;
 let OFFSET = parseInt(localStorage.getItem('schedOffset')||'0',10)||0;  // minutes behind schedule
 let mqttClient = null;
+let followLive = localStorage.getItem('followLive')!=='0';  // auto-scroll to live, default on
+let lastFocusKey = null;
 
 function pad(n){return String(n).padStart(2,'0');}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
@@ -188,6 +192,7 @@ function render(){
   let nextIdx=-1;
   if(liveIdx!==-1){ if(liveIdx+1<segs.length) nextIdx=liveIdx+1; }
   else { nextIdx=segs.findIndex(s=>s._start&&now<s._start); }
+  const focusIdx = liveIdx!==-1 ? liveIdx : nextIdx;
 
   let lastSection=null;
   const tl=document.getElementById('timeline');
@@ -221,7 +226,7 @@ function render(){
     if(s.desc) body+=`<div class="seg-desc">${esc(s.desc)}</div>`;
     if(s.note) body+=`<div class="crew-note"><b>Crew</b> &nbsp;${esc(s.note)}</div>`;
 
-    out+=`<div class="${cls.join(' ')}">
+    out+=`<div class="${cls.join(' ')}"${i===focusIdx?' id="focus-seg"':''}>
       <div class="time-col">
         <div class="time-start">${fmtTime(s._start)}</div>
         <div class="time-end">→ ${fmtTime(s._end)}</div>
@@ -231,6 +236,14 @@ function render(){
     </div>`;
     return out;
   }).join('') || '<div class="err">No schedule items yet. Add some to <b>data.json</b>.</div>';
+
+  // auto-scroll the live (or next) session into view when it changes
+  const focusKey = (focusIdx>=0 && segs[focusIdx]) ? (segs[focusIdx].start+'|'+(segs[focusIdx].title||'')) : null;
+  if(followLive && focusKey && focusKey!==lastFocusKey){
+    const el=document.getElementById('focus-seg');
+    if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
+    lastFocusKey=focusKey;
+  }
 }
 
 function tickClock(){const n=new Date();document.getElementById('clock').textContent=pad(n.getHours())+':'+pad(n.getMinutes())+':'+pad(n.getSeconds());}
@@ -271,6 +284,8 @@ function applyOffset(publish){
   document.getElementById('offPlus').addEventListener('click',()=>{ OFFSET+=1; inp.value=OFFSET; applyOffset(true); });
   document.getElementById('offReset').addEventListener('click',()=>{ OFFSET=0; inp.value=OFFSET; applyOffset(true); });
   updateNote();
+  const ft=document.getElementById('followLive');
+  if(ft){ ft.checked=followLive; ft.addEventListener('change',()=>{ followLive=ft.checked; localStorage.setItem('followLive', followLive?'1':'0'); if(followLive){ lastFocusKey=null; render(); } }); }
   initSync();
 })();
 
