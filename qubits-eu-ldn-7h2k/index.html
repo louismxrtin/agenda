@@ -27,6 +27,16 @@
   .event-meta{color:var(--muted);font-size:14px;margin-top:6px;display:flex;flex-wrap:wrap;gap:6px 18px}
   .event-meta b{color:var(--white);font-weight:500}
   .divider{height:3px;width:54px;background:var(--gold);border-radius:2px;margin-top:14px}
+  .offsetbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-top:14px;font-size:13px;color:var(--muted)}
+  .offsetbar label{color:#fff;font-weight:500}
+  .offsetbar input{width:62px;background:#111;color:#fff;border:1px solid var(--border);border-radius:8px;padding:6px 8px;font-size:14px;font-family:inherit;text-align:center}
+  .offsetbar input:focus{outline:none;border-color:var(--gold)}
+  .offsetbar button{background:#111;color:var(--gold);border:1px solid var(--border);border-radius:8px;min-width:30px;height:30px;font-size:16px;cursor:pointer;line-height:1}
+  .offsetbar button:hover{border-color:var(--gold)}
+  .offsetbar .reset{color:var(--muted);font-size:12px;padding:0 10px}
+  .offset-note{font-weight:500;margin-left:2px}
+  .offset-note.late{color:var(--gold)}
+  .offset-note.ok{color:var(--next)}
 
   .updated{max-width:900px;margin:10px auto 0;padding:0 20px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--next);display:inline-block;animation:pulse 2s infinite}
@@ -94,6 +104,15 @@
       <h1 id="event-title">Loading…</h1>
       <div class="event-meta" id="event-meta"></div>
       <div class="divider"></div>
+      <div class="offsetbar">
+        <label for="offset">Behind schedule</label>
+        <button type="button" id="offMinus" aria-label="Reduce by 1 minute">−</button>
+        <input type="number" id="offset" inputmode="numeric" step="1" value="0">
+        <button type="button" id="offPlus" aria-label="Add 1 minute">+</button>
+        <span>min</span>
+        <button type="button" id="offReset" class="reset">Reset</button>
+        <span class="offset-note ok" id="offNote">On schedule</span>
+      </div>
     </div>
   </header>
 
@@ -109,6 +128,7 @@
 <script>
 const DATA_URL = './data.json';
 let EVENT = null;
+let OFFSET = parseInt(localStorage.getItem('schedOffset')||'0',10)||0;  // minutes behind schedule
 
 function pad(n){return String(n).padStart(2,'0');}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
@@ -146,8 +166,10 @@ function render(){
   document.getElementById('event-meta').innerHTML=meta.join('');
 
   const now=new Date();
+  const offMs=OFFSET*60000;
   const segs=(EVENT.schedule||[]).map(s=>{
-    const start=toDate(EVENT.date,s.start);
+    const base=toDate(EVENT.date,s.start);
+    const start=base?new Date(base.getTime()+offMs):null;
     const dur=Number(s.duration)||0;
     const end=start?new Date(start.getTime()+dur*60000):null;
     return {...s,_start:start,_end:end,_dur:dur};
@@ -216,6 +238,23 @@ async function load(){
     document.getElementById('timeline').innerHTML='<div class="err">Could not load <b>data.json</b> ('+e.message+'). If you are opening this file directly, run it through a web server or GitHub Pages.</div>';
   }
 }
+
+function updateNote(){
+  const note=document.getElementById('offNote'); if(!note) return;
+  if(OFFSET>0){ note.textContent='Running '+OFFSET+' min behind — times adjusted'; note.className='offset-note late'; }
+  else if(OFFSET<0){ note.textContent=Math.abs(OFFSET)+' min ahead — times adjusted'; note.className='offset-note late'; }
+  else { note.textContent='On schedule'; note.className='offset-note ok'; }
+}
+function applyOffset(){ localStorage.setItem('schedOffset',String(OFFSET)); updateNote(); render(); }
+(function initOffset(){
+  const inp=document.getElementById('offset'); if(!inp) return;
+  inp.value=OFFSET;
+  inp.addEventListener('input',()=>{ OFFSET=Math.round(Number(inp.value)||0); applyOffset(); });
+  document.getElementById('offMinus').addEventListener('click',()=>{ OFFSET-=1; inp.value=OFFSET; applyOffset(); });
+  document.getElementById('offPlus').addEventListener('click',()=>{ OFFSET+=1; inp.value=OFFSET; applyOffset(); });
+  document.getElementById('offReset').addEventListener('click',()=>{ OFFSET=0; inp.value=OFFSET; applyOffset(); });
+  updateNote();
+})();
 
 tickClock(); setInterval(tickClock,1000);
 load();
