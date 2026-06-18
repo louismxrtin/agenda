@@ -188,10 +188,20 @@ function render(){
     return {...s,_start:start,_end:end,_dur:dur};
   }).sort((a,b)=>(a._start?.getTime()||0)-(b._start?.getTime()||0));
 
-  let liveIdx=segs.findIndex(s=>s._start&&s._end&&now>=s._start&&now<s._end);
-  let nextIdx=-1;
-  if(liveIdx!==-1){ if(liveIdx+1<segs.length) nextIdx=liveIdx+1; }
-  else { nextIdx=segs.findIndex(s=>s._start&&now<s._start); }
+  // current item = the one most recently started; it stays "live" through any
+  // changeover gap until the next item starts, so there's always a Live now
+  let startedIdx=-1;
+  for(let i=0;i<segs.length;i++){ if(segs[i]._start && segs[i]._start<=now) startedIdx=i; }
+  const lastEnd = segs.length ? segs[segs.length-1]._end : null;
+  let liveIdx=-1, nextIdx=-1;
+  if(startedIdx===-1){
+    nextIdx = segs.findIndex(s=>s._start && now<s._start);   // before the day starts
+  } else if(lastEnd && now>=lastEnd){
+    liveIdx=-1; nextIdx=-1;                                   // whole day finished
+  } else {
+    liveIdx = startedIdx;
+    nextIdx = (liveIdx+1<segs.length) ? liveIdx+1 : -1;
+  }
   const focusIdx = liveIdx!==-1 ? liveIdx : nextIdx;
 
   let lastSection=null;
