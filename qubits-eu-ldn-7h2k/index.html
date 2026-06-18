@@ -37,6 +37,10 @@
   .offset-note{font-weight:500;margin-left:2px}
   .offset-note.late{color:var(--gold)}
   .offset-note.ok{color:var(--next)}
+  .offsetbar .sync{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-left:auto}
+  .offsetbar .sync::before{content:"○ "}
+  .offsetbar .sync.on{color:var(--next)}
+  .offsetbar .sync.on::before{content:"● "}
 
   .updated{max-width:900px;margin:10px auto 0;padding:0 20px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--next);display:inline-block;animation:pulse 2s infinite}
@@ -112,6 +116,7 @@
         <span>min</span>
         <button type="button" id="offReset" class="reset">Reset</button>
         <span class="offset-note ok" id="offNote">On schedule</span>
+        <span class="sync" id="syncState">connecting…</span>
       </div>
     </div>
   </header>
@@ -125,10 +130,14 @@
     This page updates automatically — keep it open, no need to refresh.
   </footer>
 
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 <script>
 const DATA_URL = './data.json';
+// Shared realtime offset channel (public broker). Topic is unique to this event.
+const SYNC_TOPIC = 'gass/agenda/qubits-eu-ldn-7h2k/offset';
 let EVENT = null;
 let OFFSET = parseInt(localStorage.getItem('schedOffset')||'0',10)||0;  // minutes behind schedule
+let mqttClient = null;
 
 function pad(n){return String(n).padStart(2,'0');}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
@@ -245,16 +254,46 @@ function updateNote(){
   else if(OFFSET<0){ note.textContent=Math.abs(OFFSET)+' min ahead — times adjusted'; note.className='offset-note late'; }
   else { note.textContent='On schedule'; note.className='offset-note ok'; }
 }
-function applyOffset(){ localStorage.setItem('schedOffset',String(OFFSET)); updateNote(); render(); }
+function setSyncState(txt,ok){ const el=document.getElementById('syncState'); if(el){ el.textContent=txt; el.className='sync'+(ok?' on':''); } }
+// publish=true when this device made the change, so we broadcast it to the crew
+function applyOffset(publish){
+  localStorage.setItem('schedOffset',String(OFFSET));
+  updateNote(); render();
+  if(publish && mqttClient && mqttClient.connected){
+    mqttClient.publish(SYNC_TOPIC, String(OFFSET), {retain:true, qos:0});
+  }
+}
 (function initOffset(){
   const inp=document.getElementById('offset'); if(!inp) return;
   inp.value=OFFSET;
-  inp.addEventListener('input',()=>{ OFFSET=Math.round(Number(inp.value)||0); applyOffset(); });
-  document.getElementById('offMinus').addEventListener('click',()=>{ OFFSET-=1; inp.value=OFFSET; applyOffset(); });
-  document.getElementById('offPlus').addEventListener('click',()=>{ OFFSET+=1; inp.value=OFFSET; applyOffset(); });
-  document.getElementById('offReset').addEventListener('click',()=>{ OFFSET=0; inp.value=OFFSET; applyOffset(); });
+  inp.addEventListener('input',()=>{ OFFSET=Math.round(Number(inp.value)||0); applyOffset(true); });
+  document.getElementById('offMinus').addEventListener('click',()=>{ OFFSET-=1; inp.value=OFFSET; applyOffset(true); });
+  document.getElementById('offPlus').addEventListener('click',()=>{ OFFSET+=1; inp.value=OFFSET; applyOffset(true); });
+  document.getElementById('offReset').addEventListener('click',()=>{ OFFSET=0; inp.value=OFFSET; applyOffset(true); });
   updateNote();
+  initSync();
 })();
+
+function initSync(){
+  if(typeof mqtt==='undefined'){ setSyncState('local only',false); return; }
+  setSyncState('connecting…',false);
+  try{
+    mqttClient=mqtt.connect('wss://broker.emqx.io:8084/mqtt',{reconnectPeriod:4000,connectTimeout:8000,clean:true});
+  }catch(e){ setSyncState('local only',false); return; }
+  mqttClient.on('connect',()=>{ setSyncState('synced with crew',true); mqttClient.subscribe(SYNC_TOPIC); });
+  mqttClient.on('reconnect',()=>setSyncState('reconnecting…',false));
+  mqttClient.on('close',()=>setSyncState('offline — local only',false));
+  mqttClient.on('error',()=>setSyncState('offline — local only',false));
+  mqttClient.on('message',(topic,payload)=>{
+    const v=Math.round(Number(payload.toString())||0);
+    if(v===OFFSET) return;            // already in sync
+    OFFSET=v;
+    localStorage.setItem('schedOffset',String(OFFSET));
+    const inp=document.getElementById('offset');
+    if(inp && document.activeElement!==inp) inp.value=OFFSET;   // don't fight the operator mid-type
+    updateNote(); render();
+  });
+}
 
 tickClock(); setInterval(tickClock,1000);
 load();
