@@ -139,9 +139,10 @@
 <script>
 const DATA_URL = './data.json';
 // Shared realtime offset channel (public broker). Topic is unique to this event.
-const SYNC_TOPIC = 'gass/agenda/qubits-eu-ldn-7h2k/offset';
+const SYNC_TOPIC = 'gass/agenda/firstbank-gala-7v3k/offset';
+const OFFKEY = 'schedOffset:'+SYNC_TOPIC;
 let EVENT = null;
-let OFFSET = parseInt(localStorage.getItem('schedOffset')||'0',10)||0;  // minutes behind schedule
+let OFFSET = parseInt(localStorage.getItem(OFFKEY)||'0',10)||0;  // minutes behind schedule
 let mqttClient = null;
 let followLive = localStorage.getItem('followLive')!=='0';  // auto-scroll to live, default on
 let lastFocusKey = null;
@@ -282,7 +283,7 @@ function updateNote(){
 function setSyncState(txt,ok){ const el=document.getElementById('syncState'); if(el){ el.textContent=txt; el.className='sync'+(ok?' on':''); } }
 // publish=true when this device made the change, so we broadcast it to the crew
 function applyOffset(publish){
-  localStorage.setItem('schedOffset',String(OFFSET));
+  localStorage.setItem(OFFKEY,String(OFFSET));
   updateNote(); render();
   if(publish && mqttClient && mqttClient.connected){
     mqttClient.publish(SYNC_TOPIC, String(OFFSET), {retain:true, qos:0});
@@ -315,7 +316,7 @@ function initSync(){
     const v=Math.round(Number(payload.toString())||0);
     if(v===OFFSET) return;            // already in sync
     OFFSET=v;
-    localStorage.setItem('schedOffset',String(OFFSET));
+    localStorage.setItem(OFFKEY,String(OFFSET));
     const inp=document.getElementById('offset');
     if(inp && document.activeElement!==inp) inp.value=OFFSET;   // don't fight the operator mid-type
     updateNote(); render();
