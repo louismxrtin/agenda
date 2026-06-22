@@ -1,0 +1,60 @@
+{
+  "event": "2150 - AGM & Annual Summit",
+  "date": "2026-07-01",
+  "venue": "Battersea Power Station",
+  "client": "2150",
+  "contact": "Louis - gassProductions (07925605232)",
+  "schedule": [
+    { "start": "08:00", "duration": 60, "section": "Set-up & Arrivals", "title": "Crew & supplier set-up",
+      "items": ["gass: Louis + 4 staff arrive to set up", "LuxWall engineers (Structura) set up the window frame"] },
+    { "start": "09:00", "duration": 30, "section": "Set-up & Arrivals", "title": "2150 Partners arrive",
+      "items": ["4 x 2150 Partners arrive"] },
+    { "start": "09:30", "duration": 30, "section": "Set-up & Arrivals", "title": "AV / mic testing",
+      "items": ["AV and microphone testing with Partners on stage"] },
+
+    { "start": "10:00", "duration": 30, "section": "Session 1 - Boardroom", "title": "LPAC members arrive",
+      "items": ["12-15 LPAC members arrive"] },
+    { "start": "10:30", "duration": 60, "section": "Session 1 - Boardroom", "title": "LPAC boardroom session",
+      "items": ["Boardroom table discussion", "Session ends 11:30"] },
+
+    { "start": "11:00", "duration": 40, "section": "Session 2 - LP Insider", "title": "LP investors & staff arrive",
+      "items": ["LP investors + further 2150 staff arrive (+30)"] },
+    { "start": "11:40", "duration": 60, "section": "Session 2 - LP Insider", "title": "LP Insider Session - Fund I & II",
+      "items": ["Main stage", "Session ends 12:40"] },
+
+    { "start": "12:40", "duration": 20, "section": "Networking Lunch", "title": "Networking lunch", "type": "break",
+      "items": ["Lunch served"] },
+    { "start": "13:00", "duration": 60, "section": "Networking Lunch", "title": "Ecosystem guests arrive",
+      "items": ["Approx. +70 ecosystem guests arrive for networking lunch"] },
+
+    { "start": "14:00", "duration": 20, "section": "Session 3 - Annual Summit", "title": "Welcome & How the World Electrified",
+      "people": [ { "name": "Christian Hernandez", "role": "Co-Founder & Partner", "org": "2150" } ],
+      "desc": "Welcome and the history of Battersea Power Station." },
+    { "start": "14:20", "duration": 35, "section": "Session 3 - Annual Summit", "title": "Panel: Electricity & Energy Independence",
+      "people": [
+        { "name": "Peter Hirsch", "role": "Head of Sustainability", "org": "2150", "moderator": true },
+        { "name": "Kim Zou", "org": "Sightline Climate" },
+        { "name": "Andrew Birch", "org": "Open Solar" },
+        { "name": "Noamaan Siddiqi", "org": "Bristol Superlight" }
+      ] },
+    { "start": "14:55", "duration": 25, "section": "Session 3 - Annual Summit", "title": "Keynote: The Geopolitics of Climate Tech",
+      "people": [ { "name": "Ali Zaidi", "role": "Former White House National Climate Advisor (2022-2025)", "org": "" } ] },
+    { "start": "15:20", "duration": 20, "section": "Session 3 - Annual Summit", "title": "Coffee break", "type": "break",
+      "items": ["Coffee served"] },
+    { "start": "15:40", "duration": 35, "section": "Session 3 - Annual Summit", "title": "Panel: Minerals & Molecules - Securing Critical Supplies",
+      "people": [
+        { "name": "Claire Curry", "org": "BloombergNEF", "moderator": true },
+        { "name": "Brian Hardin", "org": "Photara" },
+        { "name": "Rafael Suchan", "org": "Metycle" },
+        { "name": "Brendan Smith", "org": "SiTration" }
+      ],
+      "desc": "Securing critical supplies amongst political strife." },
+    { "start": "16:15", "duration": 20, "section": "Session 3 - Annual Summit", "title": "Moving from Innovation to Scaling",
+      "people": [
+        { "name": "Christian Jølck", "role": "Co-Founder & Partner", "org": "2150" },
+        { "name": "Scott Thomsen", "org": "LuxWall" }
+      ] },
+    { "start": "16:35", "duration": 25, "section": "Session 3 - Annual Summit", "title": "Summit close & networking", "type": "break",
+      "items": ["Networking", "17:00 - end of session"] }
+  ]
+}
