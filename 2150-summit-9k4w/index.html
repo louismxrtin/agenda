@@ -135,15 +135,14 @@
     This page updates automatically — keep it open, no need to refresh.
   </footer>
 
-<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 <script>
 const DATA_URL = './data.json';
 // Shared realtime offset channel (public broker). Topic is unique to this event.
-const SYNC_TOPIC = 'gass/agenda/2150-summit-9k4w/offset';
-const OFFKEY = 'schedOffset:'+SYNC_TOPIC;
+const NTFY_TOPIC = 'gass-2150-9k4w-r7m2-offset';   // shared channel on ntfy.sh (HTTPS / port 443)
+const NTFY = 'https://ntfy.sh/' + NTFY_TOPIC;
+const OFFKEY = 'schedOffset:'+NTFY_TOPIC;
 let EVENT = null;
 let OFFSET = parseInt(localStorage.getItem(OFFKEY)||'0',10)||0;  // minutes behind schedule
-let mqttClient = null;
 let followLive = localStorage.getItem('followLive')!=='0';  // auto-scroll to live, default on
 let lastFocusKey = null;
 
@@ -285,9 +284,17 @@ function setSyncState(txt,ok){ const el=document.getElementById('syncState'); if
 function applyOffset(publish){
   localStorage.setItem(OFFKEY,String(OFFSET));
   updateNote(); render();
-  if(publish && mqttClient && mqttClient.connected){
-    mqttClient.publish(SYNC_TOPIC, String(OFFSET), {retain:true, qos:0});
+  if(publish){
+    fetch(NTFY, {method:'POST', body:String(OFFSET)}).catch(()=>{});   // broadcast to crew
   }
+}
+function applyRemote(v){
+  if(v===OFFSET) return;
+  OFFSET=v;
+  localStorage.setItem(OFFKEY,String(OFFSET));
+  const inp=document.getElementById('offset');
+  if(inp && document.activeElement!==inp) inp.value=OFFSET;   // don't fight the operator mid-type
+  updateNote(); render();
 }
 (function initOffset(){
   const inp=document.getElementById('offset'); if(!inp) return;
@@ -303,24 +310,23 @@ function applyOffset(publish){
 })();
 
 function initSync(){
-  if(typeof mqtt==='undefined'){ setSyncState('local only',false); return; }
   setSyncState('connecting…',false);
+  // pick up the current shared value (ntfy caches recent messages)
+  fetch(NTFY+'/json?poll=1&since=12h').then(r=>r.text()).then(t=>{
+    const lines=t.trim().split('\n').filter(Boolean);
+    for(let i=lines.length-1;i>=0;i--){
+      try{ const m=JSON.parse(lines[i]); if(m.event==='message' && m.message!=null){ applyRemote(Math.round(Number(m.message)||0)); break; } }catch(e){}
+    }
+  }).catch(()=>{});
+  // live updates via Server-Sent Events over HTTPS (port 443)
   try{
-    mqttClient=mqtt.connect('wss://broker.emqx.io:8084/mqtt',{reconnectPeriod:4000,connectTimeout:8000,clean:true});
-  }catch(e){ setSyncState('local only',false); return; }
-  mqttClient.on('connect',()=>{ setSyncState('synced with crew',true); mqttClient.subscribe(SYNC_TOPIC); });
-  mqttClient.on('reconnect',()=>setSyncState('reconnecting…',false));
-  mqttClient.on('close',()=>setSyncState('offline — local only',false));
-  mqttClient.on('error',()=>setSyncState('offline — local only',false));
-  mqttClient.on('message',(topic,payload)=>{
-    const v=Math.round(Number(payload.toString())||0);
-    if(v===OFFSET) return;            // already in sync
-    OFFSET=v;
-    localStorage.setItem(OFFKEY,String(OFFSET));
-    const inp=document.getElementById('offset');
-    if(inp && document.activeElement!==inp) inp.value=OFFSET;   // don't fight the operator mid-type
-    updateNote(); render();
-  });
+    const es=new EventSource(NTFY+'/sse');
+    es.onopen=()=>setSyncState('synced with crew',true);
+    es.onerror=()=>setSyncState('reconnecting…',false);   // EventSource auto-reconnects
+    es.onmessage=(ev)=>{
+      try{ const m=JSON.parse(ev.data); if(m.event==='message' && m.message!=null){ applyRemote(Math.round(Number(m.message)||0)); } }catch(e){}
+    };
+  }catch(e){ setSyncState('offline — local only',false); }
 }
 
 tickClock(); setInterval(tickClock,1000);
