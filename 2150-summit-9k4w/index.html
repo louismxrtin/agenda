@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Run of Show — gassProductions</title>
+<title>Run of Show - gassProductions</title>
 <style>
   :root{
     --black:#000000; --near-black:#030303; --white:#FFFFFF;
@@ -37,7 +37,7 @@
   .offset-note{font-weight:500;margin-left:2px}
   .offset-note.late{color:var(--gold)}
   .offset-note.ok{color:var(--next)}
-  .offsetbar .sync{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-left:auto}
+  .offsetbar .sync{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
   .offsetbar .sync::before{content:"○ "}
   .offsetbar .sync.on{color:var(--next)}
   .offsetbar .sync.on::before{content:"● "}
@@ -114,25 +114,25 @@
       <div class="event-meta" id="event-meta"></div>
       <div class="divider"></div>
       <div class="offsetbar">
-        <label for="offset">Behind schedule</label>
         <button type="button" id="offMinus" aria-label="Reduce by 1 minute">−</button>
         <input type="number" id="offset" inputmode="numeric" step="1" value="0">
         <button type="button" id="offPlus" aria-label="Add 1 minute">+</button>
         <span>min</span>
         <button type="button" id="offReset" class="reset">Reset</button>
         <span class="offset-note ok" id="offNote">On schedule</span>
+        <label class="followtog"><input type="checkbox" id="followLive"> Auto-scroll to live</label>
         <span class="sync" id="syncState">connecting…</span>
       </div>
     </div>
   </header>
 
-  <div class="updated"><span class="dot"></span><span id="updated">Live — auto-refreshing</span><label class="followtog"><input type="checkbox" id="followLive"> Auto-scroll to live</label></div>
+  <div class="updated"><span class="dot"></span><span id="updated">Live - auto-refreshing</span></div>
 
   <main id="timeline"></main>
 
   <footer>
     Run of Show by <b>gassProductions</b> · Live Event &amp; Creative Video Production<br>
-    This page updates automatically — keep it open, no need to refresh.
+    This page updates automatically - keep it open, no need to refresh.
   </footer>
 
 <script>
@@ -172,7 +172,7 @@ function niceDate(d){
 
 function render(){
   if(!EVENT) return;
-  document.title=(EVENT.event||'Run of Show')+' — gassProductions';
+  document.title=(EVENT.event||'Run of Show')+' - gassProductions';
   document.getElementById('event-title').textContent=EVENT.event||'Untitled Event';
   const meta=[];
   if(EVENT.date)    meta.push(`<span>📅 <b>${esc(niceDate(EVENT.date))}</b></span>`);
@@ -267,7 +267,7 @@ async function load(){
     EVENT=await res.json();
     render();
     const t=new Date();
-    document.getElementById('updated').textContent='Live — last checked '+pad(t.getHours())+':'+pad(t.getMinutes())+':'+pad(t.getSeconds());
+    document.getElementById('updated').textContent='Live - last checked '+pad(t.getHours())+':'+pad(t.getMinutes())+':'+pad(t.getSeconds());
   }catch(e){
     document.getElementById('timeline').innerHTML='<div class="err">Could not load <b>data.json</b> ('+e.message+'). If you are opening this file directly, run it through a web server or GitHub Pages.</div>';
   }
@@ -275,8 +275,8 @@ async function load(){
 
 function updateNote(){
   const note=document.getElementById('offNote'); if(!note) return;
-  if(OFFSET>0){ note.textContent='Running '+OFFSET+' min behind — times adjusted'; note.className='offset-note late'; }
-  else if(OFFSET<0){ note.textContent=Math.abs(OFFSET)+' min ahead — times adjusted'; note.className='offset-note late'; }
+  if(OFFSET>0){ note.textContent='Running '+OFFSET+' min behind - times adjusted'; note.className='offset-note late'; }
+  else if(OFFSET<0){ note.textContent=Math.abs(OFFSET)+' min ahead - times adjusted'; note.className='offset-note late'; }
   else { note.textContent='On schedule'; note.className='offset-note ok'; }
 }
 function setSyncState(txt,ok){ const el=document.getElementById('syncState'); if(el){ el.textContent=txt; el.className='sync'+(ok?' on':''); } }
@@ -326,7 +326,7 @@ function initSync(){
     es.onmessage=(ev)=>{
       try{ const m=JSON.parse(ev.data); if(m.event==='message' && m.message!=null){ applyRemote(Math.round(Number(m.message)||0)); } }catch(e){}
     };
-  }catch(e){ setSyncState('offline — local only',false); }
+  }catch(e){ setSyncState('offline - local only',false); }
 }
 
 tickClock(); setInterval(tickClock,1000);
