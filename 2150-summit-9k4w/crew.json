@@ -2,27 +2,23 @@
   "crew": [
     { "name": "Louis Martin", "phone": "07925 605232", "calls": [
       { "date": "Tue 12 May", "start": "09:00", "end": "12:00", "role": "Graphics - branded PIP & hold slides" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Streaming Engineer", "room": "Beech - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Streaming Engineer (OT 1.5x)", "room": "Beech" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Streaming Engineer", "room": "Beech - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Charlie Robinson", "phone": "07854 507184", "calls": [
       { "date": "Sun 21 Jun", "start": "11:00", "end": "18:00", "role": "Vision Engineer", "room": "Nine Kings - Rig" },
       { "date": "Mon 22 Jun", "start": "08:00", "end": "18:00", "role": "Remote heads cam op", "room": "Nine Kings - Rehearsal" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Remote heads cam op", "room": "Nine Kings - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Remote heads cam op (OT 1.5x)", "room": "Nine Kings" },
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Remote heads cam op", "room": "Nine Kings - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" },
       { "date": "Thu 25 Jun", "start": "08:00", "end": "09:00", "role": "Data wrangle start", "room": "Warehouse" },
       { "date": "Thu 25 Jun 09:00 - Fri 26 Jun", "start": "09:00", "end": "17:00", "role": "Editor - top & tail session videos", "room": "Post" }
     ] },
     { "name": "Andrew Smith", "phone": "07793 059383", "calls": [
       { "date": "Sun 21 Jun", "start": "11:00", "end": "18:00", "role": "Streaming Engineer", "room": "Nine Kings - Rig" },
       { "date": "Mon 22 Jun", "start": "08:00", "end": "18:00", "role": "Streaming Engineer", "room": "Nine Kings - Rehearsal" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Streaming Engineer", "room": "Nine Kings - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Streaming Engineer (OT 1.5x)", "room": "Nine Kings" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Streaming Engineer", "room": "Nine Kings - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Leon Purser", "phone": "07760 993733", "calls": [
       { "date": "Sun 21 Jun", "start": "11:00", "end": "18:00", "role": "Camera Operator", "room": "Nine Kings - Rig" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Camera Operator", "room": "Nine Kings - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Camera Operator (OT 1.5x)", "room": "Nine Kings" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Camera Operator", "room": "Nine Kings - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Dan Berens", "phone": "07837 828679", "calls": [
       { "date": "Sun 21 Jun", "start": "11:00", "end": "18:00", "role": "Camera Operator", "room": "Nine Kings - Rig" },
@@ -33,30 +29,25 @@
     ] },
     { "name": "Amanda Jacobs", "phone": "07956 318536", "calls": [
       { "date": "Mon 22 Jun", "start": "08:00", "end": "18:00", "role": "Vision Mixer", "room": "Nine Kings - Rehearsal" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Vision Mixer", "room": "Nine Kings - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Vision Mixer (OT 1.5x)", "room": "Nine Kings" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Vision Mixer", "room": "Nine Kings - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Owain Thatcher", "phone": "07716 191557", "calls": [
       { "date": "Mon 22 Jun", "start": "08:00", "end": "18:00", "role": "Camera Operator", "room": "Nine Kings - Rehearsal", "note": "Bristol-based - £126.70 travel per day" }
     ] },
     { "name": "Neil Neenan", "phone": "07971 992763", "calls": [
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Camera Operator", "room": "Nine Kings - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Camera Operator (OT 1.5x)", "room": "Nine Kings" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Camera Operator", "room": "Nine Kings - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Andrew Warwick", "phone": "07976 396360", "calls": [
       { "date": "Mon 22 Jun", "start": "08:00", "end": "18:00", "role": "Vision Mixer", "room": "Beech - Rig & Rehearsal" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Vision Mixer", "room": "Beech - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Vision Mixer (OT 1.5x)", "room": "Beech" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Vision Mixer", "room": "Beech - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Luke Everson", "phone": "07957 460171", "calls": [
       { "date": "Mon 22 Jun", "start": "08:00", "end": "18:00", "role": "Camera Operator", "room": "Beech - Rig & Rehearsal" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Camera Operator", "room": "Beech - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Camera Operator (OT 1.5x)", "room": "Beech" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Camera Operator", "room": "Beech - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Hannah Melish", "phone": "07999 878964", "calls": [
       { "date": "Mon 22 Jun", "start": "08:00", "end": "18:00", "role": "Camera Operator", "room": "Extras - Rehearsal" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "18:00", "role": "Camera Operator", "room": "Extras - Show" },
-      { "date": "Tue 23 Jun", "start": "18:00", "end": "20:00", "role": "Camera Operator (OT 1.5x)", "room": "Extras" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Camera Operator", "room": "Extras - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Sam Murray", "phone": "07949 552783", "calls": [
       { "date": "Sun 21 Jun", "start": "07:30", "end": "08:30", "role": "Warehouse load", "room": "Transport" },
