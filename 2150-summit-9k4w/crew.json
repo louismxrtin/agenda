@@ -1,7 +1,6 @@
 {
   "crew": [
     { "name": "Louis Martin", "phone": "07925 605232", "calls": [
-      { "date": "Tue 12 May", "start": "09:00", "end": "12:00", "role": "Graphics - branded PIP & hold slides" },
       { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Streaming Engineer", "room": "Beech - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Charlie Robinson", "phone": "07854 507184", "calls": [
@@ -48,15 +47,11 @@
       { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Camera Operator", "room": "Extras - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Sam Murray", "phone": "07949 552783", "calls": [
-      { "date": "Sun 21 Jun", "start": "07:30", "end": "08:30", "role": "Warehouse load", "room": "Transport" },
       { "date": "Sun 21 Jun", "start": "10:30", "end": "11:00", "role": "Delivery driver", "room": "Transport" },
       { "date": "Sun 21 Jun", "start": "17:30", "end": "18:00", "role": "Collection driver - empties", "room": "Transport" },
       { "date": "Tue 23 Jun", "start": "14:30", "end": "15:00", "role": "Empties delivery", "room": "Transport" },
       { "date": "Tue 23 Jun", "start": "17:30", "end": "18:00", "role": "Delivery driver", "room": "Transport" },
       { "date": "Tue 23 Jun", "start": "19:30", "end": "20:00", "role": "Collection driver", "room": "Transport" }
-    ] },
-    { "name": "Olly Carr", "phone": "07399 167934", "calls": [
-      { "date": "Sun 21 Jun", "start": "07:30", "end": "08:30", "role": "Warehouse load", "room": "Warehouse" }
     ] }
   ]
 }
