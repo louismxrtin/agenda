@@ -41,6 +41,17 @@
   .offsetbar .sync::before{content:"○ "}
   .offsetbar .sync.on{color:var(--next)}
   .offsetbar .sync.on::before{content:"● "}
+  .offsetbar .crewbtn{color:var(--gold);font-size:12px;padding:0 12px;text-transform:uppercase;letter-spacing:.5px}
+  .crewpanel{margin-top:12px;border:1px solid var(--border);border-radius:12px;background:#0a0a0a;padding:12px;max-width:560px}
+  .crewpanel select{width:100%;background:#111;color:#fff;border:1px solid var(--border);border-radius:8px;padding:9px;font-size:14px;font-family:inherit}
+  .crewpanel select:focus{outline:none;border-color:var(--gold)}
+  .crewcalls{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+  .crew-phone{color:var(--gold);font-size:14px;font-weight:500;margin-bottom:4px}
+  .crewcall{border:1px solid var(--border);border-radius:8px;padding:8px 10px;background:#0c0c0c}
+  .cc-when{font-weight:700;font-variant-numeric:tabular-nums}
+  .cc-role{color:var(--muted);font-size:13px;margin-top:2px}
+  .cc-note{color:var(--gold);font-size:12px;margin-top:4px}
+  .crew-empty{color:var(--muted);font-size:13px}
 
   .updated{max-width:none;margin:10px auto 0;padding:0 20px;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:8px}
   .dot{width:7px;height:7px;border-radius:50%;background:var(--next);display:inline-block;animation:pulse 2s infinite}
@@ -119,9 +130,14 @@
         <button type="button" id="offPlus" aria-label="Add 1 minute">+</button>
         <span>min</span>
         <button type="button" id="offReset" class="reset">Reset</button>
+        <button type="button" id="crewBtn" class="crewbtn" hidden>Call times ▾</button>
         <span class="offset-note ok" id="offNote">On schedule</span>
         <label class="followtog"><input type="checkbox" id="followLive"> Auto-scroll to live</label>
         <span class="sync" id="syncState">connecting…</span>
+      </div>
+      <div id="crewPanel" class="crewpanel" hidden>
+        <select id="crewSelect"><option value="">Select your name…</option></select>
+        <div id="crewCalls" class="crewcalls"></div>
       </div>
     </div>
   </header>
@@ -329,8 +345,37 @@ function initSync(){
   }catch(e){ setSyncState('offline - local only',false); }
 }
 
+let CREW=null;
+async function initCrew(){
+  try{
+    const r=await fetch('./crew.json?t='+Date.now(),{cache:'no-store'});
+    if(!r.ok) return;
+    const d=await r.json();
+    CREW=Array.isArray(d.crew)?d.crew:[];
+    if(!CREW.length) return;
+    const sel=document.getElementById('crewSelect');
+    sel.innerHTML='<option value="">Select your name…</option>'+CREW.map((p,i)=>`<option value="${i}">${esc(p.name)}</option>`).join('');
+    sel.addEventListener('change',()=>renderCrew(sel.value));
+    const btn=document.getElementById('crewBtn');
+    btn.hidden=false;
+    btn.addEventListener('click',()=>{ const p=document.getElementById('crewPanel'); p.hidden=!p.hidden; });
+  }catch(e){}
+}
+function renderCrew(idx){
+  const wrap=document.getElementById('crewCalls');
+  if(idx===''||idx==null||!CREW){ wrap.innerHTML=''; return; }
+  const p=CREW[+idx]; if(!p){ wrap.innerHTML=''; return; }
+  let html = p.phone ? `<div class="crew-phone">${esc(p.phone)}</div>` : '';
+  html += (p.calls||[]).map(c=>{
+    const role=[esc(c.role||''), c.room?esc(c.room):''].filter(Boolean).join(' · ');
+    return `<div class="crewcall"><div class="cc-when">${esc(c.date)} · ${esc(c.start)} - ${esc(c.end)}</div>${role?`<div class="cc-role">${role}</div>`:''}${c.note?`<div class="cc-note">${esc(c.note)}</div>`:''}</div>`;
+  }).join('') || '<div class="crew-empty">No calls listed.</div>';
+  wrap.innerHTML=html;
+}
+
 tickClock(); setInterval(tickClock,1000);
 load();
+initCrew();
 setInterval(load,60000);
 setInterval(render,30000);
 </script>
