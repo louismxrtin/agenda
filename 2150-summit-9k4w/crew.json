@@ -7,9 +7,7 @@
     { "name": "Charlie Robinson", "phone": "07854 507184", "calls": [
       { "date": "Sun 21 Jun", "start": "11:00", "end": "18:00", "role": "Vision Engineer", "room": "Nine Kings - Rig" },
       { "date": "Mon 22 Jun", "start": "08:00", "end": "18:00", "role": "Remote heads cam op", "room": "Nine Kings - Rehearsal" },
-      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Remote heads cam op", "room": "Nine Kings - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" },
-      { "date": "Thu 25 Jun", "start": "08:00", "end": "09:00", "role": "Data wrangle start", "room": "Warehouse" },
-      { "date": "Thu 25 Jun 09:00 - Fri 26 Jun", "start": "09:00", "end": "17:00", "role": "Editor - top & tail session videos", "room": "Post" }
+      { "date": "Tue 23 Jun", "start": "08:00", "end": "20:00", "role": "Remote heads cam op", "room": "Nine Kings - Show", "note": "Incl. OT 18:00 - 20:00 (1.5x)" }
     ] },
     { "name": "Andrew Smith", "phone": "07793 059383", "calls": [
       { "date": "Sun 21 Jun", "start": "11:00", "end": "18:00", "role": "Streaming Engineer", "room": "Nine Kings - Rig" },
@@ -59,11 +57,6 @@
     ] },
     { "name": "Olly Carr", "phone": "07399 167934", "calls": [
       { "date": "Sun 21 Jun", "start": "07:30", "end": "08:30", "role": "Warehouse load", "room": "Warehouse" }
-    ] },
-    { "name": "Nicholas Mitchell", "phone": "07919 884308", "calls": [
-      { "date": "Sat 20 Jun 23:00 - Sun 21 Jun", "start": "23:00", "end": "02:00", "role": "Warehouse prep", "room": "Warehouse" },
-      { "date": "Tue 23 Jun", "start": "21:00", "end": "22:00", "role": "Warehouse de-prep (partial)", "room": "Warehouse", "note": "Move kit required for Charterhouse at the Berkeley" },
-      { "date": "Wed 24 Jun", "start": "14:00", "end": "16:00", "role": "Warehouse de-prep (main)", "room": "Warehouse" }
     ] }
   ]
 }
