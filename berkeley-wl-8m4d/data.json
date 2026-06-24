@@ -1,9 +1,54 @@
 {
-  "event": "WhiteLight - The Berkeley",
+  "event": "Charterhouse Capital - AGM 2026",
   "date": "2026-06-24",
   "venue": "The Berkeley",
   "client": "WhiteLight",
   "contact": "Louis - gassProductions (07925605232)",
-  "notice": "Agenda not currently available, will update automatically.",
-  "schedule": []
+  "schedule": [
+    { "start": "14:00", "duration": 1, "title": "Year in Review", "desc": "Video (VT)" },
+    { "start": "14:01", "duration": 20, "title": "Welcome & Firm Update",
+      "people": [ { "name": "Lionel Giacomotto" } ], "note": "Mic: Lectern" },
+    { "start": "14:21", "duration": 5, "title": "Key Developments & Fundraising Momentum",
+      "people": [ { "name": "Alison Rose" } ], "note": "Mic: Lectern" },
+    { "start": "14:26", "duration": 30, "title": "Fireside Chat with Sir John Sawers, Ex-Chief of MI6",
+      "people": [ { "name": "Sir John Sawers" }, { "name": "Alison Rose", "role": "Interviewer", "moderator": true } ],
+      "note": "Mic: Chairs & 2 x lapel mics" },
+    { "start": "14:56", "duration": 5, "title": "Deal Pipeline",
+      "people": [ { "name": "Pierre de Sarrau" } ], "note": "Mic: Lectern" },
+
+    { "start": "15:01", "duration": 5, "section": "CCP XII", "title": "Winback Video", "desc": "Video (VT)" },
+    { "start": "15:06", "duration": 8, "section": "CCP XII", "title": "Winback",
+      "people": [ { "name": "Pierre de Sarrau" } ], "note": "Mic: Lectern" },
+    { "start": "15:14", "duration": 5, "section": "CCP XII", "title": "Animalcare",
+      "people": [ { "name": "Haitham Nasri" } ], "note": "Mic: Lectern" },
+
+    { "start": "15:19", "duration": 30, "title": "Mid-afternoon Break", "type": "break" },
+
+    { "start": "15:49", "duration": 30, "title": "CEO Panel",
+      "people": [ { "name": "Alison Rose", "role": "Host", "moderator": true } ],
+      "desc": "Panel of CEOs - SERB / Two Circles / Casa Optima",
+      "note": "Mic: Chairs & 4 x lapel mics" },
+    { "start": "16:19", "duration": 6, "title": "Sustainability Review",
+      "people": [ { "name": "Mirja Weidner" } ], "note": "Mic: Lectern" },
+    { "start": "16:25", "duration": 13, "title": "Funds Performance Review",
+      "people": [ { "name": "Vincent Pautet" } ], "note": "Mic: Lectern" },
+
+    { "start": "16:38", "duration": 6, "section": "CCP XI", "title": "ESTYA",
+      "people": [ { "name": "Cedric Barthelemy" } ], "note": "Mic: Lectern" },
+    { "start": "16:44", "duration": 8, "section": "CCP XI", "title": "Metrodora",
+      "people": [ { "name": "Pierre de Sarrau" }, { "name": "Mathieu Frison" } ], "note": "Mic: Lectern" },
+    { "start": "16:52", "duration": 5, "section": "CCP XI", "title": "Kids&Us",
+      "people": [ { "name": "Antonio di Lorenzo" } ], "note": "Mic: Lectern" },
+
+    { "start": "16:57", "duration": 6, "section": "CCP X", "title": "Telio",
+      "people": [ { "name": "Carsten Hagenbucher" } ], "note": "Mic: Lectern" },
+    { "start": "17:03", "duration": 6, "section": "CCP X", "title": "Cosmo5",
+      "people": [ { "name": "Cedric Barthelemy" } ], "note": "Mic: Lectern" },
+    { "start": "17:09", "duration": 5, "section": "CCP X", "title": "Vermeg",
+      "people": [ { "name": "Haitham Nasri" } ], "note": "Mic: Lectern" },
+    { "start": "17:14", "duration": 5, "section": "CCP X", "title": "LCP",
+      "people": [ { "name": "Giles Prentice" } ], "note": "Mic: Lectern" },
+
+    { "start": "17:19", "duration": 0, "title": "Finish", "type": "break" }
+  ]
 }
