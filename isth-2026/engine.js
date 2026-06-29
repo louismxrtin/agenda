@@ -239,10 +239,13 @@ function renderCrew(idx){
   wrap.innerHTML=html;
 }
 
-buildShell();
-wireUp();
-tickClock(); setInterval(tickClock,1000);
-load(); initCrew();
-setInterval(load,60000);
-setInterval(renderTimeline,30000);
+function boot(){
+  buildShell();
+  wireUp();
+  tickClock(); setInterval(tickClock,1000);
+  load(); initCrew();
+  setInterval(load,60000);
+  setInterval(renderTimeline,30000);
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot); else boot();
 })();
