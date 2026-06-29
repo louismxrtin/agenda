@@ -151,30 +151,6 @@
       "phone": "07791 004404",
       "calls": [
         {
-          "date": "Tue 14 Jul",
-          "start": "08:00",
-          "end": "18:00",
-          "role": "Camera Operator",
-          "room": "Plenary",
-          "note": "Show 4"
-        },
-        {
-          "date": "Wed 15 Jul",
-          "start": "08:00",
-          "end": "18:00",
-          "role": "Camera Operator",
-          "room": "Plenary",
-          "note": "Show 5 \u00b7 Strike from end"
-        },
-        {
-          "date": "Thu 16 Jul",
-          "start": "08:00",
-          "end": "18:00",
-          "role": "Camera Operator",
-          "room": "Plenary",
-          "note": "Travel day"
-        },
-        {
           "date": "Fri 10 Jul",
           "start": "08:00",
           "end": "18:00",
@@ -205,13 +181,15 @@
           "role": "Vision Mixer / PTZ op",
           "room": "S04 / PT4",
           "note": "Show & strike \u00b7 Incl. OT 18:00 - 20:00 (1.5x) \u00b7 moving onto Plenary crew"
-        }
-      ]
-    },
-    {
-      "name": "Louis Martin",
-      "phone": "07925 605232",
-      "calls": [
+        },
+        {
+          "date": "Tue 14 Jul",
+          "start": "08:00",
+          "end": "18:00",
+          "role": "Camera Operator",
+          "room": "Plenary",
+          "note": "Show 4"
+        },
         {
           "date": "Wed 15 Jul",
           "start": "08:00",
@@ -227,7 +205,13 @@
           "role": "Camera Operator",
           "room": "Plenary",
           "note": "Travel day"
-        },
+        }
+      ]
+    },
+    {
+      "name": "Louis Martin",
+      "phone": "07925 605232",
+      "calls": [
         {
           "date": "Fri 10 Jul",
           "start": "12:00",
@@ -267,6 +251,22 @@
           "role": "Vision Mixer",
           "room": "E03-04 / E05-06",
           "note": "Show 4 \u00b7 strike & home train 21:00"
+        },
+        {
+          "date": "Wed 15 Jul",
+          "start": "08:00",
+          "end": "18:00",
+          "role": "Camera Operator",
+          "room": "Plenary",
+          "note": "Show 5 \u00b7 Strike from end"
+        },
+        {
+          "date": "Thu 16 Jul",
+          "start": "08:00",
+          "end": "18:00",
+          "role": "Camera Operator",
+          "room": "Plenary",
+          "note": "Travel day"
         }
       ]
     },
@@ -573,6 +573,13 @@
       "phone": "07919 884308",
       "calls": [
         {
+          "date": "Mon 06 Jul",
+          "start": "14:30",
+          "end": "15:00",
+          "role": "Delivery driver",
+          "room": "Transport"
+        },
+        {
           "date": "Tue 07 Jul",
           "start": "12:30",
           "end": "13:00",
@@ -581,22 +588,15 @@
         },
         {
           "date": "Fri 17 Jul",
-          "start": "14:30",
-          "end": "15:00",
+          "start": "09:30",
+          "end": "10:30",
           "role": "Collection driver",
           "room": "Transport"
         },
         {
-          "date": "Mon 06 Jul",
+          "date": "Fri 17 Jul",
           "start": "14:30",
           "end": "15:00",
-          "role": "Delivery driver",
-          "room": "Transport"
-        },
-        {
-          "date": "Fri 17 Jul",
-          "start": "09:30",
-          "end": "10:30",
           "role": "Collection driver",
           "room": "Transport"
         },
