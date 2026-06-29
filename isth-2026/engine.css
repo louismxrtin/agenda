@@ -9,7 +9,7 @@ html,body{background:var(--black);color:var(--white);font-family:Arial, Helvetic
 body{line-height:1.6;padding-bottom:64px}
 a{color:var(--gold)}
 
-header{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,#000 78%,rgba(0,0,0,.9));border-bottom:1px solid var(--border);backdrop-filter:blur(6px)}
+header{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.9)),url("https---s3.us-east-1.amazonaws.com-uploads.thevendry.co-24989-1684139758317_1.jpg") center 55%/cover no-repeat #000;border-bottom:1px solid var(--border);backdrop-filter:blur(6px)}
 .head-inner{max-width:none;margin:0 auto;padding:18px 20px 14px}
 .brandrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .logo{height:26px;width:auto;display:block}
