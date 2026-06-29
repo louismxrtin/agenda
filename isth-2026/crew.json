@@ -40,6 +40,33 @@
       { "date": "Wed 15 Jul", "start": "08:00", "end": "18:00", "role": "Project Manager", "room": "Plenary", "note": "Show 5 · Strike from end" },
       { "date": "Thu 16 Jul", "start": "08:00", "end": "18:00", "role": "Project Manager", "room": "Plenary", "note": "Travel day" }
     ] },
+    { "name": "Dan Radford", "phone": "07792 527587", "calls": [
+      { "date": "Fri 10 Jul", "start": "07:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Travel & rig - on-site Paris 12:00" },
+      { "date": "Sat 11 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Rig, rehearsal & live" },
+      { "date": "Sun 12 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 2" },
+      { "date": "Mon 13 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 3" },
+      { "date": "Tue 14 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 4" },
+      { "date": "Wed 15 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Live & strike from 13:00" },
+      { "date": "Thu 16 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Travel day" }
+    ] },
+    { "name": "Neil Neenan", "phone": "07971 992763", "calls": [
+      { "date": "Fri 10 Jul", "start": "07:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Travel & rig - on-site Paris 12:00" },
+      { "date": "Sat 11 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Rig, rehearsal & live" },
+      { "date": "Sun 12 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 2" },
+      { "date": "Mon 13 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 3" },
+      { "date": "Tue 14 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 4" },
+      { "date": "Wed 15 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Live & strike from 13:00" },
+      { "date": "Thu 16 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Travel day" }
+    ] },
+    { "name": "Matt Robinson", "phone": "07783 416449", "calls": [
+      { "date": "Fri 10 Jul", "start": "07:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Travel & rig - on-site Paris 12:00" },
+      { "date": "Sat 11 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Rig, rehearsal & live" },
+      { "date": "Sun 12 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 2" },
+      { "date": "Mon 13 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 3" },
+      { "date": "Tue 14 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Show 4" },
+      { "date": "Wed 15 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Live & strike from 13:00" },
+      { "date": "Thu 16 Jul", "start": "08:00", "end": "18:00", "role": "Upload Operator", "room": "Upload / data", "note": "Travel day" }
+    ] },
     { "name": "Sam Murray", "phone": "07949 552783", "calls": [
       { "date": "Tue 07 Jul", "start": "12:30", "end": "13:00", "role": "Delivery driver", "room": "Transport" },
       { "date": "Fri 17 Jul", "start": "14:30", "end": "15:00", "role": "Collection driver", "room": "Transport" }

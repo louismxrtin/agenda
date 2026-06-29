@@ -11,6 +11,8 @@ const CREW_URL = './crew.json';
 const NTFY_TOPIC = 'gass-isth-2026-'+SLUG+'-offset';
 const NTFY = 'https://ntfy.sh/'+NTFY_TOPIC;
 const OFFKEY = 'schedOffset:'+NTFY_TOPIC;
+// full room list so you can jump room-to-room from any day view
+const ROOMS_MAP=[{"room":"Paris Ballroom","slug":"paris-ballroom"},{"room":"N01","slug":"n01"},{"room":"N02","slug":"n02"},{"room":"N03-04","slug":"n03-04"},{"room":"S01-02","slug":"s01-02"},{"room":"S03","slug":"s03"},{"room":"S04","slug":"s04"},{"room":"S05-06","slug":"s05-06"},{"room":"W01-02","slug":"w01-02"},{"room":"W03-04","slug":"w03-04"},{"room":"W05-06","slug":"w05-06"},{"room":"W07-08","slug":"w07-08"},{"room":"E01-02","slug":"e01-02"},{"room":"E03-04","slug":"e03-04"},{"room":"E05-06","slug":"e05-06"},{"room":"Presentation Theater 1","slug":"presentation-theater-1"},{"room":"Presentation Theater 2","slug":"presentation-theater-2"},{"room":"Presentation Theater 3","slug":"presentation-theater-3"},{"room":"Presentation Theater 4","slug":"presentation-theater-4"},{"room":"ISTH Hub","slug":"isth-hub"},{"room":"7.1","slug":"7-1"},{"room":"7.3","slug":"7-3"},{"room":"7.3 South Foyer","slug":"7-3-south-foyer"},{"room":"Exhibition Hall","slug":"exhibition-hall"},{"room":"Exhibition Hall- Poster Area","slug":"exhibition-hall-poster-area"}];
 
 let SESSIONS=[];      // this room's sessions
 let DAYS=[];          // sorted distinct date strings (YYYY-MM-DD)
@@ -58,6 +60,7 @@ function buildShell(){
       <div id="crewCalls" class="crewcalls"></div>
     </div>
     <div class="divider"></div>
+    <div class="roomrow"><span class="roomlbl">Room</span><select id="roomSelect"></select><span class="daylbl">Day</span></div>
     <div class="days" id="days"></div>
     <div class="offsetbar">
       <button type="button" id="offMinus" aria-label="Reduce by 1 minute">−</button>
@@ -136,6 +139,10 @@ function renderTimeline(){
   }
 }
 
+function renderRoomSelect(){
+  const sel=document.getElementById('roomSelect'); if(!sel)return;
+  sel.innerHTML=ROOMS_MAP.map(m=>`<option value="${m.slug}"${m.room===ROOM?' selected':''}>${esc(m.room)}</option>`).join('');
+}
 function render(){ renderMeta(); renderDays(); renderTimeline(); }
 
 function tickClock(){
@@ -153,8 +160,10 @@ async function load(){
     DAYS=[...new Set(SESSIONS.map(s=>s.s.slice(0,10)))].sort();
     if(!DAYS.length) DAYS=['2026-07-11'];
     const t=todayParis();
-    if(!curDay) curDay = DAYS.includes(t)?t:DAYS[0];
+    const hashDay=(location.hash||'').replace('#','');
+    if(!curDay) curDay = (hashDay&&DAYS.includes(hashDay)) ? hashDay : (DAYS.includes(t)?t:DAYS[0]);
     if(!DAYS.includes(curDay)) curDay=DAYS[0];
+    renderRoomSelect();
     render();
     const n=new Date();
     document.getElementById('updated').textContent='Live - last checked '+pad(n.getHours())+':'+pad(n.getMinutes())+':'+pad(n.getSeconds());
@@ -181,7 +190,8 @@ function wireUp(){
   document.getElementById('offReset').addEventListener('click',()=>{OFFSET=0;inp.value=OFFSET;applyOffset(true);});
   const ft=document.getElementById('followLive'); ft.checked=followLive;
   ft.addEventListener('change',()=>{followLive=ft.checked;localStorage.setItem('followLive',followLive?'1':'0');if(followLive){lastFocusKey=null;renderTimeline();}});
-  document.getElementById('days').addEventListener('click',e=>{const b=e.target.closest('.day');if(b){curDay=b.dataset.day;lastFocusKey=null;render();}});
+  document.getElementById('days').addEventListener('click',e=>{const b=e.target.closest('.day');if(b){curDay=b.dataset.day;try{history.replaceState(null,'','#'+curDay);}catch(_){}lastFocusKey=null;render();}});
+  document.getElementById('roomSelect').addEventListener('change',e=>{const slug=e.target.value;if(slug&&slug!==SLUG){location.href=slug+'.html'+(curDay?('#'+curDay):'');}});
   document.getElementById('event-meta').addEventListener('click',e=>{if(e.target.closest('.crewbtn')){const p=document.getElementById('crewPanel');p.hidden=!p.hidden;}});
   updateNote();
 }
