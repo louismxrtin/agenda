@@ -7,7 +7,7 @@ const SLUG = window.__SLUG || ROOM.toLowerCase().replace(/[^a-z0-9]+/g,'-');
 const EVENT_NAME = 'ISTH 2026 Congress';
 const VENUE = 'Paris Expo Porte de Versailles';
 const DATA_URL = './sessions.json';
-const CREW_URL = './crew-'+SLUG+'.json';
+const CREW_URL = './crew.json';   // full combined crew, shown on every room page
 // offset is scoped per room AND per day, so each room/day runs to its own timings
 function topicFor(day){return 'gass-isth-2026-'+SLUG+'-'+day+'-offset';}
 function ntfyFor(day){return 'https://ntfy.sh/'+topicFor(day);}
