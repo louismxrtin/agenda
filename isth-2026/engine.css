@@ -12,7 +12,10 @@ a{color:var(--gold)}
 header{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,rgba(0,0,0,.78),rgba(0,0,0,.9)),url("https---s3.us-east-1.amazonaws.com-uploads.thevendry.co-24989-1684139758317_1.jpg") center 55%/cover no-repeat #000;border-bottom:1px solid var(--border);backdrop-filter:blur(6px)}
 .head-inner{max-width:none;margin:0 auto;padding:18px 20px 14px}
 .brandrow{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brandleft{display:flex;align-items:center;gap:14px}
 .logo{height:26px;width:auto;display:block}
+.homebtn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;color:var(--gold);font-size:13px;font-weight:600;background:#111;border:1px solid var(--border);border-radius:9px;padding:6px 12px;line-height:1}
+.homebtn:hover{border-color:var(--gold)}
 .clock{font-variant-numeric:tabular-nums;font-weight:600;font-size:15px;color:var(--gold);text-align:right;line-height:1.2}
 .clock small{display:block;color:var(--muted);font-weight:400;font-size:11px;text-transform:uppercase;letter-spacing:1px}
 .kicker{margin-top:12px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold)}

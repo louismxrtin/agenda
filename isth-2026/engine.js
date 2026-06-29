@@ -52,7 +52,10 @@ function buildShell(){
   document.body.innerHTML = `
   <header><div class="head-inner">
     <div class="brandrow">
-      <img class="logo" src="/agenda/logo.png" alt="gassProductions">
+      <div class="brandleft">
+        <img class="logo" src="/agenda/logo.png" alt="gassProductions">
+        <a class="homebtn" href="./">&#8962; All rooms</a>
+      </div>
       <div class="clock"><span id="clock">--:--</span><small id="clockdate">Paris time</small></div>
     </div>
     <div class="kicker"><a href="./">${esc(EVENT_NAME)}</a> &nbsp;•&nbsp; All rooms</div>
