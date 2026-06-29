@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISTH 2026 Congress - Room Index - gassProductions</title>
+<link rel="stylesheet" href="engine.css">
+<style>
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+  .rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(260px,100%),1fr));gap:12px;margin-top:8px}
+  .rcard{display:block;text-decoration:none;border:1px solid var(--border);border-radius:14px;background:var(--panel);padding:16px;color:var(--white);transition:border-color .15s}
+  .rcard:hover{border-color:var(--gold)}
+  .rcard .rn{font-size:18px;font-weight:700}
+  .rcard .rc{color:var(--muted);font-size:13px;margin-top:4px}
+  .rcard .liv{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#000;background:var(--gold);border-radius:20px;padding:3px 9px}
+  .rcard .nx{display:inline-block;margin-top:8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--next);border:1px solid var(--next);border-radius:20px;padding:2px 8px}
+  .grp{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin:26px 0 6px;display:flex;align-items:center;gap:12px}
+  .grp::after{content:"";flex:1;height:1px;background:var(--border)}
+</style>
+</head>
+<body>
+<header><div class="head-inner">
+  <div class="brandrow">
+    <img class="logo" src="/agenda/logo.png" alt="gassProductions">
+    <div class="clock"><span id="clock">--:--</span><small>Paris time</small></div>
+  </div>
+  <div class="kicker">ISTH 2026 Congress</div>
+  <h1>Programme - All Rooms</h1>
+  <div class="event-meta">
+    <span>&#128205; <b>Paris Expo Porte de Versailles</b></span>
+    <span>&#128197; <b>11-15 July 2026</b></span>
+    <span>On-site: <button type="button" class="crewbtn" id="crewBtn">Call times &#9662;</button></span>
+  </div>
+  <div id="crewPanel" class="crewpanel" hidden>
+    <select id="crewSelect"><option value="">Select your name&#8230;</option></select>
+    <div id="crewCalls" class="crewcalls"></div>
+  </div>
+  <div class="divider"></div>
+</div></header>
+<div class="updated"><span class="dot"></span><span id="updated">Live - tap a room to open its running order</span></div>
+<main class="wrap"><div id="roomsHost"></div></main>
+<footer>Run of Show by <b>gassProductions</b> &#8226; Live Event &amp; Creative Video Production<br>
+ISTH 2026 Congress &#8226; Paris Expo Porte de Versailles &#8226; 11-15 July 2026 &#8226; This page updates automatically.</footer>
+<script>
+const MAP=[{"room": "7.1", "slug": "7-1"}, {"room": "7.3", "slug": "7-3"}, {"room": "7.3 South Foyer", "slug": "7-3-south-foyer"}, {"room": "E01-02", "slug": "e01-02"}, {"room": "E03-04", "slug": "e03-04"}, {"room": "E05-06", "slug": "e05-06"}, {"room": "Exhibition Hall", "slug": "exhibition-hall"}, {"room": "Exhibition Hall- Poster Area", "slug": "exhibition-hall-poster-area"}, {"room": "ISTH Hub", "slug": "isth-hub"}, {"room": "N01", "slug": "n01"}, {"room": "N02", "slug": "n02"}, {"room": "N03-04", "slug": "n03-04"}, {"room": "Paris Ballroom", "slug": "paris-ballroom"}, {"room": "Presentation Theater 1", "slug": "presentation-theater-1"}, {"room": "Presentation Theater 2", "slug": "presentation-theater-2"}, {"room": "Presentation Theater 3", "slug": "presentation-theater-3"}, {"room": "Presentation Theater 4", "slug": "presentation-theater-4"}, {"room": "S01-02", "slug": "s01-02"}, {"room": "S03", "slug": "s03"}, {"room": "S04", "slug": "s04"}, {"room": "S05-06", "slug": "s05-06"}, {"room": "W01-02", "slug": "w01-02"}, {"room": "W03-04", "slug": "w03-04"}, {"room": "W05-06", "slug": "w05-06"}, {"room": "W07-08", "slug": "w07-08"}];
+const GROUPS=[
+  ["Plenary",["Paris Ballroom"]],
+  ["Session rooms",["N01","N02","N03-04","S01-02","S03","S04","S05-06","W01-02","W03-04","W05-06","W07-08","E01-02","E03-04","E05-06"]],
+  ["Presentation theaters & hub",["Presentation Theater 1","Presentation Theater 2","Presentation Theater 3","Presentation Theater 4","ISTH Hub"]],
+  ["Registration, exhibition & foyers",["7.1","7.3","7.3 South Foyer","Exhibition Hall","Exhibition Hall- Poster Area"]]
+];
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function slugOf(r){const m=MAP.find(x=>x.room===r);return m?m.slug:'';}
+function tickClock(){try{const f=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});document.getElementById('clock').textContent=f.format(new Date());}catch(e){}}
+tickClock();setInterval(tickClock,1000);
+let SESS=[];
+async function load(){
+  try{const r=await fetch('./sessions.json?t='+Date.now(),{cache:'no-store'});SESS=await r.json();}catch(e){SESS=[];}
+  render();
+}
+function statusFor(room){
+  const now=Date.now();
+  const items=SESS.filter(s=>s.room===room).map(s=>({a:+new Date(s.s),b:+new Date(s.e),t:s.t})).sort((x,y)=>x.a-y.a);
+  let live=null,next=null;
+  for(const it of items){ if(it.a<=now&&now<it.b){live=it;} }
+  if(!live){ next=items.find(it=>it.a>now)||null; }
+  return {count:items.length, live, next};
+}
+function card(room){
+  const st=statusFor(room);
+  let badge='';
+  if(st.live) badge='<div class="liv">&#9679; Live now</div>';
+  else if(st.next){ const d=new Date(st.next.a); badge='<div class="nx">Next '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')+'</div>'; }
+  return '<a class="rcard" href="./'+slugOf(room)+'.html"><div class="rn">'+esc(room)+'</div><div class="rc">'+st.count+' session'+(st.count===1?'':'s')+'</div>'+badge+'</a>';
+}
+function render(){
+  let html='';
+  for(const [title,rooms] of GROUPS){
+    const present=rooms.filter(r=>MAP.some(m=>m.room===r));
+    if(!present.length) continue;
+    html+='<div class="grp">'+esc(title)+'</div><div class="rooms">'+present.map(card).join('')+'</div>';
+  }
+  document.getElementById('roomsHost').innerHTML=html;
+}
+load(); setInterval(load,60000);
+// crew dropdown
+let CREW=null;
+async function initCrew(){
+  try{const r=await fetch('./crew.json?t='+Date.now(),{cache:'no-store'});if(!r.ok)return;const d=await r.json();CREW=(d.crew&&d.crew.length)?d.crew:null;if(!CREW)return;
+    const sel=document.getElementById('crewSelect');
+    sel.innerHTML='<option value="">Select your name&#8230;</option>'+CREW.map((p,i)=>'<option value="'+i+'">'+esc(p.name)+'</option>').join('');
+    sel.addEventListener('change',()=>renderCrew(sel.value));
+  }catch(e){}
+}
+document.getElementById('crewBtn').addEventListener('click',()=>{const p=document.getElementById('crewPanel');p.hidden=!p.hidden;});
+function renderCrew(idx){const wrap=document.getElementById('crewCalls');if(idx===''||!CREW){wrap.innerHTML='';return;}const p=CREW[+idx];if(!p){wrap.innerHTML='';return;}
+  let h=p.phone?'<div class="crew-phone">'+esc(p.phone)+'</div>':'';
+  h+=(p.calls||[]).map(c=>{const role=[esc(c.role||''),c.room?esc(c.room):''].filter(Boolean).join(' \u00b7 ');return '<div class="crewcall"><div class="cc-when">'+esc(c.date)+' \u00b7 '+esc(c.start)+' - '+esc(c.end)+'</div>'+(role?'<div class="cc-role">'+role+'</div>':'')+(c.note?'<div class="cc-note">'+esc(c.note)+'</div>':'')+'</div>';}).join('')||'<div class="crew-empty">No calls listed.</div>';
+  wrap.innerHTML=h;
+}
+initCrew();
+</script>
+</body>
+</html>
