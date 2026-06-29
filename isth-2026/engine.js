@@ -66,7 +66,6 @@ function buildShell(){
       <div id="crewCalls" class="crewcalls"></div>
     </div>
     <div class="divider"></div>
-    <div class="roomrow"><span class="roomlbl">Room</span><select id="roomSelect"></select><span class="daylbl">Day</span></div>
     <div class="days" id="days"></div>
     <div class="offsetbar">
       <button type="button" id="offMinus" aria-label="Reduce by 1 minute">−</button>
@@ -169,7 +168,6 @@ async function load(){
     const hashDay=(location.hash||'').replace('#','');
     if(!curDay) curDay = (hashDay&&DAYS.includes(hashDay)) ? hashDay : (DAYS.includes(t)?t:DAYS[0]);
     if(!DAYS.includes(curDay)) curDay=DAYS[0];
-    renderRoomSelect();
     if(!inited){ inited=true; loadDayOffset(); connectSync(); }
     render();
     const n=new Date();
@@ -199,7 +197,6 @@ function wireUp(){
   const ft=document.getElementById('followLive'); ft.checked=followLive;
   ft.addEventListener('change',()=>{followLive=ft.checked;localStorage.setItem('followLive',followLive?'1':'0');if(followLive){lastFocusKey=null;renderTimeline();}});
   document.getElementById('days').addEventListener('click',e=>{const b=e.target.closest('.day');if(b){curDay=b.dataset.day;try{history.replaceState(null,'','#'+curDay);}catch(_){}lastFocusKey=null;loadDayOffset();render();connectSync();}});
-  document.getElementById('roomSelect').addEventListener('change',e=>{const slug=e.target.value;if(slug&&slug!==SLUG){location.href=slug+'.html'+(curDay?('#'+curDay):'');}});
   document.getElementById('event-meta').addEventListener('click',e=>{if(e.target.closest('.crewbtn')){const p=document.getElementById('crewPanel');p.hidden=!p.hidden;}});
   updateNote();
 }
