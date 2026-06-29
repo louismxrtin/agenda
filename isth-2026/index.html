@@ -42,12 +42,11 @@
 <footer>Run of Show by <b>gassProductions</b> &#8226; Live Event &amp; Creative Video Production<br>
 ISTH 2026 Congress &#8226; Paris Expo Porte de Versailles &#8226; 11-15 July 2026 &#8226; This page updates automatically.</footer>
 <script>
-const MAP=[{"room": "7.1", "slug": "7-1"}, {"room": "7.3", "slug": "7-3"}, {"room": "7.3 South Foyer", "slug": "7-3-south-foyer"}, {"room": "E01-02", "slug": "e01-02"}, {"room": "E03-04", "slug": "e03-04"}, {"room": "E05-06", "slug": "e05-06"}, {"room": "Exhibition Hall", "slug": "exhibition-hall"}, {"room": "Exhibition Hall- Poster Area", "slug": "exhibition-hall-poster-area"}, {"room": "ISTH Hub", "slug": "isth-hub"}, {"room": "N01", "slug": "n01"}, {"room": "N02", "slug": "n02"}, {"room": "N03-04", "slug": "n03-04"}, {"room": "Paris Ballroom", "slug": "paris-ballroom"}, {"room": "Presentation Theater 1", "slug": "presentation-theater-1"}, {"room": "Presentation Theater 2", "slug": "presentation-theater-2"}, {"room": "Presentation Theater 3", "slug": "presentation-theater-3"}, {"room": "Presentation Theater 4", "slug": "presentation-theater-4"}, {"room": "S01-02", "slug": "s01-02"}, {"room": "S03", "slug": "s03"}, {"room": "S04", "slug": "s04"}, {"room": "S05-06", "slug": "s05-06"}, {"room": "W01-02", "slug": "w01-02"}, {"room": "W03-04", "slug": "w03-04"}, {"room": "W05-06", "slug": "w05-06"}, {"room": "W07-08", "slug": "w07-08"}];
+const MAP=[{"room": "Paris Ballroom", "slug": "paris-ballroom"}, {"room": "S04", "slug": "s04"}, {"room": "W03-04", "slug": "w03-04"}, {"room": "W07-08", "slug": "w07-08"}, {"room": "E03-04", "slug": "e03-04"}, {"room": "E05-06", "slug": "e05-06"}, {"room": "Presentation Theater 1", "slug": "presentation-theater-1"}, {"room": "Presentation Theater 4", "slug": "presentation-theater-4"}];
 const GROUPS=[
   ["Plenary",["Paris Ballroom"]],
-  ["Session rooms",["N01","N02","N03-04","S01-02","S03","S04","S05-06","W01-02","W03-04","W05-06","W07-08","E01-02","E03-04","E05-06"]],
-  ["Presentation theaters & hub",["Presentation Theater 1","Presentation Theater 2","Presentation Theater 3","Presentation Theater 4","ISTH Hub"]],
-  ["Registration, exhibition & foyers",["7.1","7.3","7.3 South Foyer","Exhibition Hall","Exhibition Hall- Poster Area"]]
+  ["Breakout rooms",["S04","W03-04","W07-08","E03-04","E05-06"]],
+  ["Presentation theaters",["Presentation Theater 1","Presentation Theater 4"]]
 ];
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function slugOf(r){const m=MAP.find(x=>x.room===r);return m?m.slug:'';}
