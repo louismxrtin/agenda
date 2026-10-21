@@ -4,6 +4,9 @@
 (function(){
 const ROOM = window.__ROOM || 'TBC';
 const SLUG = window.__SLUG || ROOM.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+// multi-room (floating) mode: window.__ROOMS=["Arora 15",...] shows them merged with room tags
+const ROOMS = (Array.isArray(window.__ROOMS)&&window.__ROOMS.length)?window.__ROOMS:[ROOM];
+const MULTI = ROOMS.length>1;
 const EVENT_NAME = 'Cvent CONNECT Europe 2026';
 const VENUE = 'InterContinental London - The O2';
 const DATA_URL = './sessions.json';
@@ -106,21 +109,28 @@ function renderTimeline(){
     .sort((a,b)=>a._a-b._a);
 
   let liveIdx=-1,nextIdx=-1;
-  let started=-1;
-  for(let i=0;i<segs.length;i++){ if(segs[i]._a<=now) started=i; }
-  const lastEnd=segs.length?segs[segs.length-1]._b:null;
-  if(started===-1){ nextIdx=segs.findIndex(s=>now<s._a); }
-  else if(lastEnd&&now>=lastEnd){ liveIdx=-1;nextIdx=-1; }
-  else { liveIdx=started; nextIdx=(liveIdx+1<segs.length)?liveIdx+1:-1; }
-  const focusIdx=liveIdx!==-1?liveIdx:nextIdx;
+  if(MULTI){
+    nextIdx=segs.findIndex(s=>s._a>now);           // soonest upcoming across the rooms
+  } else {
+    let started=-1;
+    for(let i=0;i<segs.length;i++){ if(segs[i]._a<=now) started=i; }
+    const lastEnd=segs.length?segs[segs.length-1]._b:null;
+    if(started===-1){ nextIdx=segs.findIndex(s=>now<s._a); }
+    else if(lastEnd&&now>=lastEnd){ liveIdx=-1;nextIdx=-1; }
+    else { liveIdx=started; nextIdx=(liveIdx+1<segs.length)?liveIdx+1:-1; }
+  }
+  let focusIdx;
+  if(MULTI){ const fl=segs.findIndex(s=>s._a<=now&&now<s._b); focusIdx=fl!==-1?fl:nextIdx; }
+  else { focusIdx=liveIdx!==-1?liveIdx:nextIdx; }
 
   const tl=document.getElementById('timeline');
-  if(!segs.length){ tl.innerHTML=`<div class="empty">No sessions in <b>${esc(ROOM)}</b> on this day.</div>`; return; }
+  if(!segs.length){ tl.innerHTML=`<div class="empty">No sessions on this day.</div>`; return; }
   tl.innerHTML=segs.map((s,i)=>{
-    const isLive=i===liveIdx,isNext=i===nextIdx,isDone=now>=s._b;
+    const isLive = MULTI ? (s._a<=now&&now<s._b) : (i===liveIdx);
+    const isNext = (i===nextIdx) && !isLive;
+    const isDone = now>=s._b;
     const cls=['seg']; if(isLive)cls.push('live'); else if(isDone)cls.push('done');
     let badge=''; if(isLive)badge='<div class="badge live">● Live now</div>'; else if(isNext)badge='<div class="badge next">Up next</div>';
-    const showId=/^[A-Za-z]/.test(String(s.id));
     const dur=Math.round((new Date(s.e)-new Date(s.s))/60000);
     return `<div class="${cls.join(' ')}"${i===focusIdx?' id="focus-seg"':''}>
       <div class="time-col">
@@ -129,6 +139,7 @@ function renderTimeline(){
         ${dur>0?`<div class="dur">${dur} min</div>`:''}
       </div>
       <div class="info">
+        ${MULTI?`<div class="room-tag">${esc(s.room)}</div>`:''}
         <div class="seg-head"><div class="seg-title">${esc(s.t)}</div>${badge}</div>
         ${(s.people&&s.people.length)?`<div class="people">`+s.people.map(p=>`<div class="person"><div class="pn">${esc(p.name)}</div>${(p.role||p.org)?`<div class="pr">${[esc(p.role||''),esc(p.org||'')].filter(Boolean).join(' · ')}</div>`:''}</div>`).join('')+`</div>`:''}
       </div>
@@ -160,7 +171,7 @@ async function load(){
     const res=await fetch(DATA_URL+'?t='+Date.now(),{cache:'no-store'});
     if(!res.ok) throw new Error('HTTP '+res.status);
     const all=await res.json();
-    SESSIONS=all.filter(s=>s.room===ROOM);
+    SESSIONS=all.filter(s=>ROOMS.includes(s.room));
     DAYS=[...new Set(SESSIONS.map(s=>s.s.slice(0,10)))].sort();
     if(!DAYS.length) DAYS=['2026-07-11'];
     const t=todayLondon();
