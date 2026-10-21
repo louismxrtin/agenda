@@ -22,7 +22,7 @@
 <header><div class="head-inner">
   <div class="brandrow">
     <img class="logo" src="/agenda/logo.png" alt="gassProductions">
-    <div class="clock"><span id="clock">--:--</span><small>Paris time</small></div>
+    <div class="clock"><span id="clock">--:--</span><small>London time</small></div>
   </div>
   <div class="kicker">Cvent CONNECT Europe 2026</div>
   <h1>Programme - All Rooms</h1>
@@ -46,7 +46,7 @@ const MAP=[{"room": "Peninsula Ballroom", "slug": "peninsula-ballroom"}, {"room"
 const GROUPS=[["Main stage",["Peninsula Ballroom"]],["Breakout rooms",["Arora 15","Arora 16","Arora 17"]]];
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 function slugOf(r){const m=MAP.find(x=>x.room===r);return m?m.slug:'';}
-function tickClock(){try{const f=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Paris',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});document.getElementById('clock').textContent=f.format(new Date());}catch(e){}}
+function tickClock(){try{const f=new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/London',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});document.getElementById('clock').textContent=f.format(new Date());}catch(e){}}
 tickClock();setInterval(tickClock,1000);
 let SESS=[];
 async function load(){
