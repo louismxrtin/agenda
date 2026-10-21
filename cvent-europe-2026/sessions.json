@@ -1,0 +1,554 @@
+[
+ {
+  "t": "Training Workshop: Designing unforgettable websites",
+  "room": "Arora 15",
+  "s": "2026-10-20T09:30:00+01:00",
+  "e": "2026-10-20T12:00:00+01:00",
+  "people": [
+   {
+    "name": "Emily Butler",
+    "role": "Manager, Learning & Development",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Partner Summit",
+  "room": "Arora 17",
+  "s": "2026-10-20T12:00:00+01:00",
+  "e": "2026-10-20T17:00:00+01:00",
+  "people": [
+   {
+    "name": "Scott Lockey",
+    "role": "Vice President - Sales, Partnerships",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Training Workshop: Unlock event ROI with Cvent Reporting and Insights",
+  "room": "Arora 15",
+  "s": "2026-10-20T13:00:00+01:00",
+  "e": "2026-10-20T15:00:00+01:00",
+  "people": [
+   {
+    "name": "Dominick Valusescu",
+    "role": "Lead Customer Success Advisor",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Leadership Summit",
+  "room": "Arora 16",
+  "s": "2026-10-20T14:00:00+01:00",
+  "e": "2026-10-20T18:00:00+01:00",
+  "people": [
+   {
+    "name": "Shawn Volesky Oster",
+    "role": "Principal Customer Success Manager",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Training Workshop: Optimise your venue profile and proposal management",
+  "room": "Arora 15",
+  "s": "2026-10-20T15:30:00+01:00",
+  "e": "2026-10-20T17:00:00+01:00",
+  "people": [
+   {
+    "name": "Lucia Sabate",
+    "role": "Manager, Sales Training",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "General Session: Welcome Keynote - Cvent CEO, Reggie Aggarwal",
+  "room": "Peninsula Ballroom",
+  "s": "2026-10-21T09:00:00+01:00",
+  "e": "2026-10-21T10:00:00+01:00",
+  "people": [
+   {
+    "name": "Reggie Aggarwal",
+    "role": "Founder & CEO",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "General Session: Cvent Event Marketing & Management Product Roadmap",
+  "room": "Peninsula Ballroom",
+  "s": "2026-10-21T10:15:00+01:00",
+  "e": "2026-10-21T11:15:00+01:00",
+  "people": [
+   {
+    "name": "Jason Misener",
+    "role": "Senior Director, Product Management",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Human first: Wellbeing in an AI world",
+  "room": "Arora 16",
+  "s": "2026-10-21T11:25:00+01:00",
+  "e": "2026-10-21T11:40:00+01:00",
+  "people": [
+   {
+    "name": "Sarah Hunt",
+    "role": "Corporate Wellness Specialist",
+    "org": "Conference Wellness"
+   }
+  ]
+ },
+ {
+  "t": "From Big Ideas to Business Impact",
+  "room": "Arora 15",
+  "s": "2026-10-21T11:30:00+01:00",
+  "e": "2026-10-21T12:15:00+01:00",
+  "people": [
+   {
+    "name": "Amy Lucia",
+    "role": "Chief Marketing Officer",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "GBTA insights on the future of corporate travel and meetings",
+  "room": "Arora 17",
+  "s": "2026-10-21T11:30:00+01:00",
+  "e": "2026-10-21T12:30:00+01:00",
+  "people": [
+   {
+    "name": "Laura Cresswell",
+    "role": "Principal Solutions Consultant, Supplier & Venue Solutions",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Cvent on Cvent: How our events team uses AI to rethink their entire event programme",
+  "room": "Arora 16",
+  "s": "2026-10-21T11:45:00+01:00",
+  "e": "2026-10-21T12:30:00+01:00",
+  "people": [
+   {
+    "name": "Rick Collins",
+    "role": "Vice President, Global Demand Center",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "What STR and Cvent RFP trends reveal about European hotel demand",
+  "room": "Arora 17",
+  "s": "2026-10-21T13:15:00+01:00",
+  "e": "2026-10-21T14:00:00+01:00",
+  "people": [
+   {
+    "name": "Michal Rao",
+    "role": "Regional Director - Northern Europe, STR",
+    "org": "STR"
+   }
+  ]
+ },
+ {
+  "t": "Busting data silos: Turning event data into intelligence you can act on",
+  "room": "Arora 16",
+  "s": "2026-10-21T13:30:00+01:00",
+  "e": "2026-10-21T14:00:00+01:00",
+  "people": [
+   {
+    "name": "Rob Curtis",
+    "role": "Director of Event Technology and Intelligence",
+    "org": "Clevertouch Consulting"
+   }
+  ]
+ },
+ {
+  "t": "What's next for European events: Trends from the European Experience Index",
+  "room": "Arora 15",
+  "s": "2026-10-21T13:30:00+01:00",
+  "e": "2026-10-21T14:00:00+01:00",
+  "people": [
+   {
+    "name": "Katerina Panoussi",
+    "role": "Founder & Managing Director",
+    "org": "All About Events"
+   }
+  ]
+ },
+ {
+  "t": "How AI and planner-venue collaboration drive better event visualisation",
+  "room": "Arora 17",
+  "s": "2026-10-21T14:15:00+01:00",
+  "e": "2026-10-21T15:00:00+01:00",
+  "people": [
+   {
+    "name": "Amanda Kijak",
+    "role": "Technical Producer",
+    "org": "Emota, part of Inizio Engage XD"
+   }
+  ]
+ },
+ {
+  "t": "A mindful approach to peak performance",
+  "room": "Arora 15",
+  "s": "2026-10-21T14:30:00+01:00",
+  "e": "2026-10-21T15:00:00+01:00",
+  "people": [
+   {
+    "name": "Sarah Hunt",
+    "role": "Corporate Wellness Specialist",
+    "org": "Conference Wellness"
+   }
+  ]
+ },
+ {
+  "t": "The VIP treatment: Creating experiences that count",
+  "room": "Arora 16",
+  "s": "2026-10-21T14:30:00+01:00",
+  "e": "2026-10-21T15:00:00+01:00",
+  "people": [
+   {
+    "name": "Laura Rosinska",
+    "role": "Founder",
+    "org": "Lauren Amara Ltd"
+   }
+  ]
+ },
+ {
+  "t": "From friction to flow in venue sourcing: Real stories and co-created solutions",
+  "room": "Arora 17",
+  "s": "2026-10-21T15:15:00+01:00",
+  "e": "2026-10-21T16:00:00+01:00",
+  "people": [
+   {
+    "name": "Bo van Strijland",
+    "role": "Director of Sales",
+    "org": "The Savoy, Strand, London"
+   }
+  ]
+ },
+ {
+  "t": "Bridging events and marketing: How to prove business impact together",
+  "room": "Arora 16",
+  "s": "2026-10-21T15:30:00+01:00",
+  "e": "2026-10-21T16:00:00+01:00",
+  "people": [
+   {
+    "name": "Catherine Southall",
+    "role": "Head of M&E Business Development UK & Ireland",
+    "org": "AMEX GBT"
+   }
+  ]
+ },
+ {
+  "t": "Whose ROI is it anyway?",
+  "room": "Arora 15",
+  "s": "2026-10-21T15:30:00+01:00",
+  "e": "2026-10-21T16:00:00+01:00",
+  "people": [
+   {
+    "name": "Marie Diane Tyler",
+    "role": "Director of Strategic Engagement",
+    "org": "OrangeDoor, an Unbridled Company"
+   }
+  ]
+ },
+ {
+  "t": "Live music, big energy: A SongDivision energiser",
+  "room": "Peninsula Ballroom",
+  "s": "2026-10-21T16:15:00+01:00",
+  "e": "2026-10-21T16:30:00+01:00",
+  "people": [
+   {
+    "name": "Sam McNeill",
+    "role": "General Manager & Podcast Host",
+    "org": "Song Division"
+   }
+  ]
+ },
+ {
+  "t": "General Session: Why people don't buy what you think they're buying: Rory Sutherland on the hidden value of experience",
+  "room": "Peninsula Ballroom",
+  "s": "2026-10-21T16:30:00+01:00",
+  "e": "2026-10-21T17:20:00+01:00",
+  "people": [
+   {
+    "name": "Rory Sutherland",
+    "role": "Vice Chairman",
+    "org": "Ogilvy UK"
+   }
+  ]
+ },
+ {
+  "t": "The Excellence Awards & Evening Reception",
+  "room": "Peninsula Ballroom",
+  "s": "2026-10-21T18:30:00+01:00",
+  "e": "2026-10-21T21:30:00+01:00",
+  "people": []
+ },
+ {
+  "t": "A live music energiser with SongDivision",
+  "room": "Peninsula Ballroom",
+  "s": "2026-10-22T08:55:00+01:00",
+  "e": "2026-10-22T09:05:00+01:00",
+  "people": [
+   {
+    "name": "Sam McNeill",
+    "role": "General Manager & Podcast Host",
+    "org": "Song Division"
+   }
+  ]
+ },
+ {
+  "t": "General Session: Building a career one shot at a time: A conversation with Ade Adepitan",
+  "room": "Peninsula Ballroom",
+  "s": "2026-10-22T09:15:00+01:00",
+  "e": "2026-10-22T10:00:00+01:00",
+  "people": [
+   {
+    "name": "Leanne Joseph",
+    "role": "Emcee, Event Host, and Moderator"
+   }
+  ]
+ },
+ {
+  "t": "#SlowtheF***Down",
+  "room": "Peninsula Ballroom",
+  "s": "2026-10-22T10:15:00+01:00",
+  "e": "2026-10-22T11:15:00+01:00",
+  "people": [
+   {
+    "name": "Emma Harris",
+    "role": "Founder",
+    "org": "Glow London"
+   }
+  ]
+ },
+ {
+  "t": "Extending Cvent",
+  "room": "Arora 16",
+  "s": "2026-10-22T10:15:00+01:00",
+  "e": "2026-10-22T10:45:00+01:00",
+  "people": [
+   {
+    "name": "Jamie Vaughan",
+    "role": "Vice President, Sales",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Event trends uncovered: Data-driven insights from Cvent Source and PULSE",
+  "room": "Arora 17",
+  "s": "2026-10-22T10:30:00+01:00",
+  "e": "2026-10-22T11:15:00+01:00",
+  "people": [
+   {
+    "name": "Konrad Pant",
+    "role": "Senior Regional Sales Manager",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Behind closed doors: The 5 truths that make event tech work",
+  "room": "Arora 16",
+  "s": "2026-10-22T11:00:00+01:00",
+  "e": "2026-10-22T11:30:00+01:00",
+  "people": [
+   {
+    "name": "Vanessa Lovatt",
+    "role": "Founder",
+    "org": "Event Tech World"
+   }
+  ]
+ },
+ {
+  "t": "The future of corporate travel: A fireside chat with Accor",
+  "room": "Arora 17",
+  "s": "2026-10-22T11:30:00+01:00",
+  "e": "2026-10-22T12:15:00+01:00",
+  "people": [
+   {
+    "name": "Christophe Etchegaray",
+    "role": "SVP Corporate, TMC & Consortia Sales",
+    "org": "Accor"
+   }
+  ]
+ },
+ {
+  "t": "The trust gap: How events build credibility AI can't",
+  "room": "Arora 15",
+  "s": "2026-10-22T11:30:00+01:00",
+  "e": "2026-10-22T12:00:00+01:00",
+  "people": [
+   {
+    "name": "Felicia Asiedu",
+    "role": "Director, Europe Marketing",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Martyn's Law: What UK event and venue teams should know",
+  "room": "Arora 16",
+  "s": "2026-10-22T11:45:00+01:00",
+  "e": "2026-10-22T12:30:00+01:00",
+  "people": [
+   {
+    "name": "David Vacher",
+    "role": "Director - Commercial Services",
+    "org": "University of Westminster"
+   }
+  ]
+ },
+ {
+  "t": "Smarter sourcing, stronger events: The planner-CVB advantage",
+  "room": "Arora 17",
+  "s": "2026-10-22T13:15:00+01:00",
+  "e": "2026-10-22T13:45:00+01:00",
+  "people": [
+   {
+    "name": "Emily Cross",
+    "role": "Director of Events",
+    "org": "Novotel London West"
+   }
+  ]
+ },
+ {
+  "t": "The human advantage: How to claim the power of your story",
+  "room": "Arora 16",
+  "s": "2026-10-22T13:15:00+01:00",
+  "e": "2026-10-22T13:50:00+01:00",
+  "people": [
+   {
+    "name": "Abi Osho",
+    "role": "Storytelling & Leadership Coach",
+    "org": "Soul Melanin"
+   }
+  ]
+ },
+ {
+  "t": "What are your buyers telling you? Turning signals into growth",
+  "room": "Arora 15",
+  "s": "2026-10-22T13:15:00+01:00",
+  "e": "2026-10-22T13:45:00+01:00",
+  "people": [
+   {
+    "name": "Lisa Davis",
+    "role": "Managing Director | Head of Europe",
+    "org": "Marketbridge"
+   }
+  ]
+ },
+ {
+  "t": "Negotiated vs. public: HotelHub & Cvent insights on where your rates really stand",
+  "room": "Arora 17",
+  "s": "2026-10-22T14:00:00+01:00",
+  "e": "2026-10-22T14:45:00+01:00",
+  "people": [
+   {
+    "name": "Laura Cresswell",
+    "role": "Principal Solutions Consultant, Supplier & Venue Solutions",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "Performance vs brand: Can events achieve both?",
+  "room": "Arora 15",
+  "s": "2026-10-22T14:00:00+01:00",
+  "e": "2026-10-22T14:30:00+01:00",
+  "people": [
+   {
+    "name": "Christoph Woermann",
+    "role": "CMO, Corporate Bank",
+    "org": "Deutsche Bank"
+   }
+  ]
+ },
+ {
+  "t": "Sustainability in action: Turning data into decisions",
+  "room": "Arora 16",
+  "s": "2026-10-22T14:00:00+01:00",
+  "e": "2026-10-22T14:30:00+01:00",
+  "people": [
+   {
+    "name": "Nico Nicholas",
+    "role": "CEO & Co-Founder",
+    "org": "ZEERO Group"
+   }
+  ]
+ },
+ {
+  "t": "The energy reset: Move, recharge, restore",
+  "room": "Arora 15",
+  "s": "2026-10-22T14:45:00+01:00",
+  "e": "2026-10-22T15:00:00+01:00",
+  "people": [
+   {
+    "name": "Sarah Hunt",
+    "role": "Corporate Wellness Specialist",
+    "org": "Conference Wellness"
+   }
+  ]
+ },
+ {
+  "t": "A live music pick-me-up with SongDivision",
+  "room": "Arora 16",
+  "s": "2026-10-22T15:00:00+01:00",
+  "e": "2026-10-22T15:15:00+01:00",
+  "people": [
+   {
+    "name": "Sam McNeill",
+    "role": "General Manager & Podcast Host",
+    "org": "Song Division"
+   }
+  ]
+ },
+ {
+  "t": "How planners and venues simplify room blocks through automation and collaboration",
+  "room": "Arora 17",
+  "s": "2026-10-22T15:15:00+01:00",
+  "e": "2026-10-22T15:45:00+01:00",
+  "people": [
+   {
+    "name": "Abi Schmit",
+    "role": "Director, Delegate Management",
+    "org": "BCD Meetings & Events"
+   }
+  ]
+ },
+ {
+  "t": "The GEO playbook: How to get your content found in AI search",
+  "room": "Arora 15",
+  "s": "2026-10-22T15:15:00+01:00",
+  "e": "2026-10-22T15:45:00+01:00",
+  "people": [
+   {
+    "name": "Victoria Akinsowon",
+    "role": "Manager, Content Marketing",
+    "org": "Cvent"
+   }
+  ]
+ },
+ {
+  "t": "The trade show playbook high-performing teams already use",
+  "room": "Arora 16",
+  "s": "2026-10-22T15:15:00+01:00",
+  "e": "2026-10-22T15:45:00+01:00",
+  "people": [
+   {
+    "name": "Hannah Kemshell",
+    "role": "Global Field Marketing Director",
+    "org": "ON24"
+   }
+  ]
+ }
+]
