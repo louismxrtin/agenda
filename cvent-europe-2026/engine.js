@@ -56,7 +56,7 @@ function buildShell(){
         <img class="logo" src="/agenda/logo.png" alt="gassProductions">
         <a class="homebtn" href="./">&#8962; All rooms</a>
       </div>
-      <div class="clock"><span id="clock">--:--</span><small id="clockdate">Paris time</small></div>
+      <div class="clock"><span id="clock">--:--</span><small id="clockdate">London time</small></div>
     </div>
     <div class="kicker"><a href="./">${esc(EVENT_NAME)}</a> &nbsp;•&nbsp; All rooms</div>
     <h1 id="roomName">${esc(ROOM)}</h1>
