@@ -1,0 +1,268 @@
+{
+  "event": "EY Student Induction - Main Stage 1",
+  "date": "2026-09-09",
+  "venue": "Magazine London",
+  "client": "EY (Cheerful Twentyfirst)",
+  "contact": "Louis - gassProductions (07925605232)",
+  "schedule": [
+    {
+      "start": "10:00",
+      "duration": 15,
+      "title": "Crew standby",
+      "type": "break"
+    },
+    {
+      "start": "10:15",
+      "duration": 14,
+      "title": "Walk in",
+      "type": "break"
+    },
+    {
+      "start": "10:29",
+      "duration": 1,
+      "title": "Clearence - given by client",
+      "type": "break"
+    },
+    {
+      "start": "10:30",
+      "duration": 1,
+      "title": "Opening VT / Opening Sting"
+    },
+    {
+      "start": "10:31",
+      "duration": 2,
+      "title": "Welcome & Introduction",
+      "people": [
+        {
+          "name": "Student Hosts"
+        },
+        {
+          "name": "Emilia Isaacs"
+        },
+        {
+          "name": "Krish Budhdeo"
+        }
+      ],
+      "note": "PPT & Autocue"
+    },
+    {
+      "start": "10:33",
+      "duration": 10,
+      "title": "Opening Remarks",
+      "people": [
+        {
+          "name": "Stuart Gregory"
+        }
+      ],
+      "note": "PPT & Autocue"
+    },
+    {
+      "start": "10:43",
+      "duration": 29,
+      "title": "Panel Discussion",
+      "people": [
+        {
+          "name": "Anne Marie Balfe"
+        },
+        {
+          "name": "Martina Keane"
+        },
+        {
+          "name": "Stuart Gregory"
+        },
+        {
+          "name": "Emilia Isaacs (student)"
+        },
+        {
+          "name": "Krish Budhdeo (student)"
+        }
+      ],
+      "note": "PPT & Autocue"
+    },
+    {
+      "start": "11:12",
+      "duration": 1,
+      "title": "Walk off / up",
+      "type": "break"
+    },
+    {
+      "start": "11:13",
+      "duration": 3,
+      "title": "Photo Op",
+      "type": "break",
+      "note": "Photo op infront of camera stand"
+    },
+    {
+      "start": "11:16",
+      "duration": 9,
+      "title": "14 Minute Changeover - reset for SL Leadership Session - Assurance - Headsets on chairs",
+      "type": "break"
+    },
+    {
+      "start": "11:25",
+      "duration": 5,
+      "title": "Crew standby",
+      "type": "break"
+    },
+    {
+      "start": "11:30",
+      "duration": 60,
+      "title": "SL Leadership Session - Assurance",
+      "people": [
+        {
+          "name": "Javier Faiz",
+          "role": "SLL Leadership keynote speaker opening 5 mins"
+        },
+        {
+          "name": "Joe Yglesia",
+          "role": "SLL Leadership keynote speaker"
+        },
+        {
+          "name": "Stephanie Strydom",
+          "role": "SLL Leadership keynote speaker"
+        },
+        {
+          "name": "Sheetal Birtharthee",
+          "role": "SLL Panel Host"
+        },
+        {
+          "name": "Maree-Louise Kernick",
+          "role": "SLL Leadership keynote speaker"
+        }
+      ],
+      "note": "PPT & notes · Autocue for Sheetal"
+    },
+    {
+      "start": "12:30",
+      "duration": 10,
+      "title": "15 Minute Changeover - reset for Resilience and Wellbeing - Headsets on chairs",
+      "type": "break"
+    },
+    {
+      "start": "12:40",
+      "duration": 5,
+      "title": "Crew standby",
+      "type": "break"
+    },
+    {
+      "start": "12:45",
+      "duration": 45,
+      "title": "ICAS PQ Session",
+      "people": [
+        {
+          "name": "Scott Fisher"
+        },
+        {
+          "name": "? to ask Questions (on cue cards)"
+        }
+      ],
+      "note": "No script - just clicker"
+    },
+    {
+      "start": "13:30",
+      "duration": 40,
+      "title": "45 Minute Changeover - Reset for Student Experience Session - check Headsets",
+      "type": "break"
+    },
+    {
+      "start": "14:10",
+      "duration": 5,
+      "title": "Crew standby",
+      "type": "break"
+    },
+    {
+      "start": "14:15",
+      "duration": 15,
+      "title": "Student Experience Session",
+      "people": [
+        {
+          "name": "Andrew Tumusime"
+        },
+        {
+          "name": "Natalie O'Hagan"
+        }
+      ],
+      "note": "PPT Speaker Notes"
+    },
+    {
+      "start": "14:30",
+      "duration": 10,
+      "title": "15 Minute Changeover - Reset for ICAEW PQ Session - check Headsets",
+      "type": "break"
+    },
+    {
+      "start": "14:40",
+      "duration": 5,
+      "title": "Crew standby",
+      "type": "break"
+    },
+    {
+      "start": "14:45",
+      "duration": 45,
+      "title": "ICAEW PQ Session",
+      "people": [
+        {
+          "name": "Ellie Polding"
+        }
+      ],
+      "note": "No script"
+    },
+    {
+      "start": "15:30",
+      "duration": 5,
+      "title": "10 Minute Changeover - reset for ICAEW Session - check Headsets",
+      "type": "break"
+    },
+    {
+      "start": "15:35",
+      "duration": 5,
+      "title": "Crew standby",
+      "type": "break"
+    },
+    {
+      "start": "15:40",
+      "duration": 30,
+      "title": "Starting out right financially",
+      "people": [
+        {
+          "name": "Katie Vye",
+          "role": "Speaker"
+        }
+      ]
+    },
+    {
+      "start": "16:10",
+      "duration": 5,
+      "title": "10 Minute Changeover - reset for Closing Plenary Session",
+      "type": "break"
+    },
+    {
+      "start": "16:15",
+      "duration": 5,
+      "title": "Crew standby",
+      "type": "break"
+    },
+    {
+      "start": "16:20",
+      "duration": 15,
+      "title": "Closing Plenary Session",
+      "people": [
+        {
+          "name": "Anne Marie Balfe"
+        },
+        {
+          "name": "Emilia Isaacs"
+        },
+        {
+          "name": "Krish Budhdeo"
+        }
+      ]
+    },
+    {
+      "start": "16:35",
+      "duration": 15,
+      "title": "Session end and Main Stage no longer in use, check screen content",
+      "type": "break"
+    }
+  ]
+}
